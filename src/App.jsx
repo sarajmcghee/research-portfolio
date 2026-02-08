@@ -162,6 +162,25 @@ export default function App() {
     scene.add(new THREE.AmbientLight("#d9e6e4", 0.7));
 
     let baseTree = null;
+    const movement = {
+      forward: 0,
+      strafe: 0
+    };
+    const pointer = {
+      active: false,
+      lastX: 0,
+      lastY: 0,
+      yaw: 0,
+      pitch: -0.08
+    };
+    const joystick = {
+      active: false,
+      startX: 0,
+      startY: 0,
+      x: 0,
+      y: 0
+    };
+    const lastInput = { time: Date.now() };
 
     const createForest = async () => {
       const tree = new FLORASYNTH.Tree(FLORASYNTH.Presets.ASH);
@@ -228,13 +247,137 @@ export default function App() {
     const handleResize = () => resize();
     window.addEventListener("resize", handleResize);
 
+    const onKey = (event, isDown) => {
+      switch (event.code) {
+        case "KeyW":
+        case "ArrowUp":
+          movement.forward = isDown ? 1 : 0;
+          if (isDown) lastInput.time = Date.now();
+          break;
+        case "KeyS":
+        case "ArrowDown":
+          movement.forward = isDown ? -1 : 0;
+          if (isDown) lastInput.time = Date.now();
+          break;
+        case "KeyA":
+        case "ArrowLeft":
+          movement.strafe = isDown ? -1 : 0;
+          if (isDown) lastInput.time = Date.now();
+          break;
+        case "KeyD":
+        case "ArrowRight":
+          movement.strafe = isDown ? 1 : 0;
+          if (isDown) lastInput.time = Date.now();
+          break;
+        default:
+          break;
+      }
+    };
+
+    const onPointerDown = (event) => {
+      pointer.active = true;
+      pointer.lastX = event.clientX;
+      pointer.lastY = event.clientY;
+      lastInput.time = Date.now();
+    };
+
+    const onPointerMove = (event) => {
+      if (!pointer.active) return;
+      const dx = event.clientX - pointer.lastX;
+      const dy = event.clientY - pointer.lastY;
+      pointer.lastX = event.clientX;
+      pointer.lastY = event.clientY;
+      pointer.yaw -= dx * 0.002;
+      pointer.pitch = THREE.MathUtils.clamp(pointer.pitch - dy * 0.002, -0.35, 0.35);
+      lastInput.time = Date.now();
+    };
+
+    const onPointerUp = () => {
+      pointer.active = false;
+    };
+
+    const onWheel = (event) => {
+      camera.position.z += event.deltaY * 0.003;
+      camera.position.z = THREE.MathUtils.clamp(camera.position.z, 3, 18);
+      lastInput.time = Date.now();
+    };
+
+    const joyBase = document.getElementById("joystick-base");
+    const joyStick = document.getElementById("joystick-stick");
+
+    const onJoyStart = (event) => {
+      if (!joyBase || !joyStick) return;
+      joystick.active = true;
+      const touch = event.touches ? event.touches[0] : event;
+      const rect = joyBase.getBoundingClientRect();
+      joystick.startX = rect.left + rect.width / 2;
+      joystick.startY = rect.top + rect.height / 2;
+      joystick.x = touch.clientX - joystick.startX;
+      joystick.y = touch.clientY - joystick.startY;
+      lastInput.time = Date.now();
+    };
+
+    const onJoyMove = (event) => {
+      if (!joystick.active || !joyBase || !joyStick) return;
+      const touch = event.touches ? event.touches[0] : event;
+      const dx = touch.clientX - joystick.startX;
+      const dy = touch.clientY - joystick.startY;
+      const max = 30;
+      const dist = Math.min(Math.hypot(dx, dy), max);
+      const angle = Math.atan2(dy, dx);
+      joystick.x = Math.cos(angle) * dist;
+      joystick.y = Math.sin(angle) * dist;
+      joyStick.style.transform = `translate(${joystick.x}px, ${joystick.y}px)`;
+      movement.strafe = THREE.MathUtils.clamp(joystick.x / max, -1, 1);
+      movement.forward = THREE.MathUtils.clamp(-joystick.y / max, -1, 1);
+      lastInput.time = Date.now();
+    };
+
+    const onJoyEnd = () => {
+      if (!joyBase || !joyStick) return;
+      joystick.active = false;
+      joystick.x = 0;
+      joystick.y = 0;
+      joyStick.style.transform = "translate(0px, 0px)";
+      movement.forward = 0;
+      movement.strafe = 0;
+    };
+
+    const onKeyDown = (e) => onKey(e, true);
+    const onKeyUp = (e) => onKey(e, false);
+
+    window.addEventListener("keydown", onKeyDown);
+    window.addEventListener("keyup", onKeyUp);
+    canvas.addEventListener("pointerdown", onPointerDown);
+    window.addEventListener("pointermove", onPointerMove);
+    window.addEventListener("pointerup", onPointerUp);
+    canvas.addEventListener("wheel", onWheel, { passive: true });
+    joyBase?.addEventListener("pointerdown", onJoyStart);
+    window.addEventListener("pointermove", onJoyMove);
+    window.addEventListener("pointerup", onJoyEnd);
+    joyBase?.addEventListener("touchstart", onJoyStart, { passive: true });
+    window.addEventListener("touchmove", onJoyMove, { passive: true });
+    window.addEventListener("touchend", onJoyEnd);
+
     let frameId;
-    let travel = 0;
     const animate = () => {
-      travel += 0.02;
-      camera.position.z = 10 - (travel % 18);
-      camera.position.x = Math.sin(travel * 0.2) * 1.2;
-      camera.lookAt(0, 0.6, camera.position.z - 8);
+      const speed = 0.08;
+      const idle = Date.now() - lastInput.time > 1800;
+      const forward = (idle ? 0.45 : movement.forward) * speed;
+      const strafe = (idle ? 0.1 : movement.strafe) * speed;
+
+      camera.position.x += Math.sin(pointer.yaw) * forward + Math.cos(pointer.yaw) * strafe;
+      camera.position.z += Math.cos(pointer.yaw) * forward - Math.sin(pointer.yaw) * strafe;
+
+      camera.position.x = THREE.MathUtils.clamp(camera.position.x, -10, 10);
+      camera.position.z = THREE.MathUtils.clamp(camera.position.z, -32, 12);
+
+      const lookTarget = new THREE.Vector3(
+        camera.position.x + Math.sin(pointer.yaw),
+        camera.position.y + pointer.pitch,
+        camera.position.z - Math.cos(pointer.yaw)
+      );
+      camera.lookAt(lookTarget);
       renderer.render(scene, camera);
       frameId = requestAnimationFrame(animate);
     };
@@ -243,6 +386,18 @@ export default function App() {
     return () => {
       cancelAnimationFrame(frameId);
       window.removeEventListener("resize", handleResize);
+      window.removeEventListener("keydown", onKeyDown);
+      window.removeEventListener("keyup", onKeyUp);
+      window.removeEventListener("pointermove", onPointerMove);
+      window.removeEventListener("pointerup", onPointerUp);
+      canvas.removeEventListener("pointerdown", onPointerDown);
+      canvas.removeEventListener("wheel", onWheel);
+      joyBase?.removeEventListener("pointerdown", onJoyStart);
+      window.removeEventListener("pointermove", onJoyMove);
+      window.removeEventListener("pointerup", onJoyEnd);
+      joyBase?.removeEventListener("touchstart", onJoyStart);
+      window.removeEventListener("touchmove", onJoyMove);
+      window.removeEventListener("touchend", onJoyEnd);
       renderer.dispose();
     };
   }, []);
@@ -274,6 +429,9 @@ export default function App() {
           </div>
           <div className="hero-canvas forest">
             <canvas ref={canvasRef} aria-hidden="true" />
+            <div id="joystick-base" className="joystick" aria-hidden="true">
+              <div id="joystick-stick" className="joystick-stick" />
+            </div>
           </div>
         </div>
       </header>
