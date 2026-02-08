@@ -27,6 +27,12 @@ jobs:
           node-version: "20"
           cache: "npm"
 
+      - name: Configure Privjs registry
+        run: |
+          echo "//r.privjs.com/:_authToken=${{ secrets.PRIVJS_TOKEN }}" >> .npmrc
+          echo "@privjs:registry=https://r.privjs.com" >> .npmrc
+          echo "registry=https://registry.npmjs.org/" >> .npmrc
+
       - name: Install
         run: npm ci
 
