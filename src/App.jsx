@@ -319,6 +319,7 @@ export default function App() {
 
     const onJoyMove = (event) => {
       if (!joystick.active || !joyBase || !joyStick) return;
+      if (event.cancelable) event.preventDefault();
       const touch = event.touches ? event.touches[0] : event;
       const dx = touch.clientX - joystick.startX;
       const dy = touch.clientY - joystick.startY;
@@ -356,7 +357,7 @@ export default function App() {
     window.addEventListener("pointermove", onJoyMove);
     window.addEventListener("pointerup", onJoyEnd);
     joyBase?.addEventListener("touchstart", onJoyStart, { passive: true });
-    window.addEventListener("touchmove", onJoyMove, { passive: true });
+    window.addEventListener("touchmove", onJoyMove, { passive: false });
     window.addEventListener("touchend", onJoyEnd);
 
     let frameId;
