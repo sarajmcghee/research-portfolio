@@ -1,3 +1,6 @@
+import { useEffect, useRef } from "react";
+import * as THREE from "three";
+import * as FLORASYNTH from "florasynth";
 import chatShot from "./assets/chat.png";
 import cryShot from "./assets/cry.png";
 import enigShot from "./assets/enig.jpeg";
@@ -127,6 +130,123 @@ const highlights = [
 ];
 
 export default function App() {
+  const canvasRef = useRef(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const scene = new THREE.Scene();
+    scene.fog = new THREE.Fog("#f4f0ea", 8, 32);
+
+    const camera = new THREE.PerspectiveCamera(55, 1, 0.1, 200);
+    camera.position.set(0, 2.6, 12);
+
+    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+    const world = new THREE.Group();
+    scene.add(world);
+
+    const ground = new THREE.Mesh(
+      new THREE.PlaneGeometry(200, 200),
+      new THREE.MeshStandardMaterial({ color: "#e7e1d6" })
+    );
+    ground.rotation.x = -Math.PI / 2;
+    ground.position.y = -0.6;
+    scene.add(ground);
+
+    const sun = new THREE.DirectionalLight("#ffe5c2", 1.1);
+    sun.position.set(6, 10, 4);
+    scene.add(sun);
+    scene.add(new THREE.AmbientLight("#d9e6e4", 0.7));
+
+    let baseTree = null;
+
+    const createForest = async () => {
+      const tree = new FLORASYNTH.Tree(FLORASYNTH.Presets.ASH);
+      const meshes = await tree.generate();
+      const treeGroup = new THREE.Group();
+      if (meshes.mesh) {
+        meshes.mesh.traverse((child) => {
+          if (child.isMesh) {
+            child.geometry?.computeVertexNormals?.();
+            child.material = new THREE.MeshStandardMaterial({
+              color: "#5a3a26",
+              roughness: 0.7,
+              metalness: 0.0
+            });
+          }
+        });
+        treeGroup.add(meshes.mesh);
+      }
+      if (meshes.foliageMesh) {
+        meshes.foliageMesh.traverse((child) => {
+          if (child.isMesh) {
+            child.geometry?.computeVertexNormals?.();
+            child.material = new THREE.MeshStandardMaterial({
+              color: "#c7392f",
+              roughness: 0.5,
+              metalness: 0.0,
+              flatShading: false
+            });
+          }
+        });
+        treeGroup.add(meshes.foliageMesh);
+      }
+      if (meshes.fruitMesh) treeGroup.add(meshes.fruitMesh);
+      baseTree = treeGroup;
+
+      const rows = 5;
+      const cols = 6;
+      const spacing = 6;
+      for (let i = 0; i < rows; i += 1) {
+        for (let j = 0; j < cols; j += 1) {
+          const clone = baseTree.clone(true);
+          const x = (j - (cols - 1) / 2) * spacing + (Math.random() - 0.5) * 2.2;
+          const z = -i * spacing - Math.random() * 4;
+          const scale = 0.07 + Math.random() * 0.03;
+          clone.position.set(x, -0.6, z);
+          clone.scale.setScalar(scale);
+          clone.rotation.y = Math.random() * Math.PI * 2;
+          world.add(clone);
+        }
+      }
+    };
+
+    createForest();
+
+    const resize = () => {
+      const width = canvas.parentElement?.clientWidth || 520;
+      const height = Math.min(520, width);
+      renderer.setSize(width, height, false);
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();
+    };
+
+    resize();
+    const handleResize = () => resize();
+    window.addEventListener("resize", handleResize);
+
+    let frameId;
+    let travel = 0;
+    const animate = () => {
+      travel += 0.02;
+      camera.position.z = 10 - (travel % 18);
+      camera.position.x = Math.sin(travel * 0.2) * 1.2;
+      camera.lookAt(0, 0.6, camera.position.z - 8);
+      renderer.render(scene, camera);
+      frameId = requestAnimationFrame(animate);
+    };
+    animate();
+
+    return () => {
+      cancelAnimationFrame(frameId);
+      window.removeEventListener("resize", handleResize);
+      renderer.dispose();
+    };
+  }, []);
+
   return (
     <div className="page">
       <header className="hero">
@@ -136,18 +256,25 @@ export default function App() {
             github.com/sarajmcghee
           </a>
         </div>
-        <h1>
-          Sara McGhee
-          <span>Minimalist AI portfolio with a love for birds</span>
-        </h1>
-        <p className="lead">
-          I build focused machine‑learning experiments that respect data locality, model clarity, and
-          nature‑inspired aesthetics. My latest work explores how transfer learning can make a compact
-          bird classifier both accurate and fast to iterate.
-        </p>
-        <div className="hero-actions">
-          <a className="button" href="#work">Latest PyTorch work</a>
-          <a className="button ghost" href="#about">About</a>
+        <div className="hero-main">
+          <div>
+            <h1>
+              Sara McGhee
+              <span>Minimalist AI portfolio with a love for birds</span>
+            </h1>
+            <p className="lead">
+              I build focused machine‑learning experiments that respect data locality, model clarity, and
+              nature‑inspired aesthetics. My latest work explores how transfer learning can make a compact
+              bird classifier both accurate and fast to iterate.
+            </p>
+            <div className="hero-actions">
+              <a className="button" href="#work">Latest PyTorch work</a>
+              <a className="button ghost" href="#about">About</a>
+            </div>
+          </div>
+          <div className="hero-canvas forest">
+            <canvas ref={canvasRef} aria-hidden="true" />
+          </div>
         </div>
       </header>
 
@@ -265,6 +392,7 @@ export default function App() {
           <img src={kingfisherArt} alt="Kingfisher drawing by Sara McGhee" />
         </div>
       </section>
+
 
       <footer className="footer">
         <span>© 2026 Sara McGhee</span>

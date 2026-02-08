@@ -1,0 +1,13 @@
+newmtl tex_mesh_0_4ec9ce1a
+Ka 1.000 1.000 1.000
+Kd 1.000 1.000 1.000
+Ks 0.000 0.000 0.000
+map_Kd tex_mesh_0_4ec9ce1a_diffuse.jpg
+map_Bump tex_mesh_0_4ec9ce1a_normal.jpg
+
+newmtl tex_foliageMesh_0_b6445c9e
+Ka 1.000 1.000 1.000
+Kd 1.000 1.000 1.000
+Ks 0.000 0.000 0.000
+map_Kd tex_foliageMesh_0_b6445c9e_diffuse.png
+

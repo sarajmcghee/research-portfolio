@@ -112,6 +112,47 @@ h1 span {
   z-index: 1;
 }
 
+.hero-main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 32px;
+  align-items: center;
+  z-index: 1;
+}
+
+.hero-canvas {
+  justify-self: center;
+  display: grid;
+  place-items: center;
+  gap: 12px;
+  padding: 20px;
+  border-radius: 28px;
+  background: radial-gradient(circle at 30% 30%, rgba(122, 208, 198, 0.4), transparent 55%),
+    radial-gradient(circle at 70% 10%, rgba(243, 123, 42, 0.35), transparent 40%);
+  border: 1px solid rgba(11, 31, 34, 0.08);
+}
+
+.hero-canvas.forest {
+  background:
+    radial-gradient(circle at 20% 20%, rgba(243, 123, 42, 0.35), transparent 55%),
+    radial-gradient(circle at 70% 10%, rgba(122, 208, 198, 0.35), transparent 45%),
+    linear-gradient(160deg, rgba(11, 106, 115, 0.15), rgba(11, 31, 34, 0.08));
+}
+
+.hero-canvas canvas {
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 1 / 1;
+  display: block;
+}
+
+.canvas-caption {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(11, 31, 34, 0.5);
+}
+
 .hero-actions {
   display: flex;
   gap: 12px;
@@ -326,6 +367,7 @@ h1 span {
   background: #f0ece6;
   padding: 12px;
 }
+
 
 .card-header p {
   margin: 0;
