@@ -1,3 +1,8 @@
+import chatShot from "./assets/chat.png";
+import cryShot from "./assets/cry.png";
+import enigShot from "./assets/enig.jpeg";
+import kingfisherArt from "./assets/king.jpg";
+
 const projects = [
   {
     title: "PyTorch Bird Images Classifier",
@@ -55,12 +60,78 @@ const projects = [
   }
 ];
 
+const highlights = [
+  {
+    title: "Research Portfolio",
+    summary: "Current home for ML research notes, notebooks, and portfolio updates.",
+    year: "2026",
+    language: "Jupyter Notebook",
+    url: "https://github.com/sarajmcghee/research-portfolio",
+    tone: "river"
+  },
+  {
+    title: "React Chat App",
+    summary: "Real‑time UI exploration with modern React patterns.",
+    year: "2025",
+    language: "JavaScript",
+    url: "https://github.com/sarajmcghee/react-chat-app",
+    demo: "https://sarajmcghee.github.io/react-chat-app/",
+    image: chatShot,
+    tone: "sunset"
+  },
+  {
+    title: "Kids Chore Calendar",
+    summary: "Utility scripting and scheduling logic in Python.",
+    year: "2024",
+    language: "Python",
+    url: "https://github.com/sarajmcghee/KidsChoreCalendar",
+    tone: "sunset"
+  },
+  {
+    title: "Crybaby Photo",
+    summary: "JavaScript visual experimentation and image‑forward UI exploration.",
+    year: "2025",
+    language: "JavaScript",
+    url: "https://github.com/sarajmcghee/crybaby-photo",
+    demo: "https://sarajmcghee.github.io/crybaby-photo/",
+    image: cryShot,
+    tone: "river"
+  },
+  {
+    title: "Unearthed Enigma",
+    summary: "Moody web experience with strong visual atmosphere.",
+    year: "2024",
+    language: "JavaScript",
+    url: "https://sarajmcghee.github.io/unearthed-enigma/",
+    demo: "https://sarajmcghee.github.io/unearthed-enigma/",
+    image: enigShot,
+    tone: "forest"
+  },
+  {
+    title: "Zayzilla",
+    summary: "Creative JavaScript experimentation and front‑end exploration.",
+    year: "2024",
+    language: "JavaScript",
+    url: "https://github.com/sarajmcghee/Zayzilla",
+    demo: "https://sarajmcghee.github.io/Zayzilla/",
+    tone: "forest"
+  },
+  {
+    title: "Portfolio Project (HTML)",
+    summary: "Early web foundations and layout practice.",
+    year: "2022",
+    language: "HTML",
+    url: "https://github.com/sarajmcghee/Portfolio-Project",
+    tone: "river"
+  }
+];
+
 export default function App() {
   return (
     <div className="page">
       <header className="hero">
         <div className="hero-top">
-          <div className="badge">Kingfisher AI</div>
+          <div className="badge">Sara McGhee Portfolio</div>
           <a className="link" href="https://github.com/sarajmcghee" target="_blank" rel="noreferrer">
             github.com/sarajmcghee
           </a>
@@ -151,6 +222,47 @@ export default function App() {
           <p className="small">
             Clean lines, bright accents, and a hint of river‑light shimmer.
           </p>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="section-title">
+          <h2>Development Highlights</h2>
+          <p>A curated grid tracing the evolution of tools, languages, and focus.</p>
+        </div>
+        <div className="grid">
+          {highlights.map((item) => (
+            <a className="highlight-card" key={item.title} href={item.url} target="_blank" rel="noreferrer">
+              {item.image ? (
+                <img className="shot" src={item.image} alt={`${item.title} screenshot`} />
+              ) : (
+                <div className={`thumb ${item.tone}`} aria-hidden="true" />
+              )}
+              <div>
+                <div className="highlight-head">
+                  <h3>{item.title}</h3>
+                  <span className="pill">{item.year}</span>
+                </div>
+                <p>{item.summary}</p>
+                <div className="highlight-meta">
+                  <span className="chip">{item.language}</span>
+                  {item.demo ? (
+                    <span className="demo">Live</span>
+                  ) : null}
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <section className="section art">
+        <div className="section-title">
+          <h2>Art</h2>
+          <p>Original kingfisher study in colored pencil.</p>
+        </div>
+        <div className="art-card">
+          <img src={kingfisherArt} alt="Kingfisher drawing by Sara McGhee" />
         </div>
       </section>
 
