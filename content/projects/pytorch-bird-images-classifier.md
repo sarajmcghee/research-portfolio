@@ -1,28 +1,19 @@
-# PyTorch Bird Images Classifier
-
-## At a glance
-- Goal: Build a local, reproducible image-classification baseline for fine-grained bird species (`200` classes) that could plug directly into later multimodal work.
-- Approach: Transfer learning on CUB-200-2011 with deterministic data splitting, lightweight augmentation, and short-cycle fine-tuning on Apple MPS.
-- Outcome: Validated the full train-to-artifact path quickly and reached `55.19%` validation accuracy in 3 epochs, with reusable outputs consumed by the fusion project.
-
-## Overview
-I built this as an execution-first baseline: prove the pipeline, lock artifact contracts, and make iteration fast. Instead of chasing maximum accuracy immediately, I prioritized a stable system that could be improved incrementally without reworking data flow or downstream interfaces.
-
-## What I changed
-- Implemented a deterministic `80/20` class-preserving split to produce stable train/validation folders (`splits/train`, `splits/valid`).
-- Standardized image preprocessing to `224x224` with targeted augmentation (random horizontal flip in training only) to keep the baseline simple and comparable.
-- Used transfer learning with early-layer freezing and a reduced fine-tuning LR to shorten training time while preserving pretrained features.
-- Constrained initial training to `3` epochs intentionally to validate end-to-end reliability before deeper hyperparameter work.
-- Exported inference-ready artifacts (`image_model.pth` + class-index mapping) so later notebooks could consume the model without retraining.
-
-## Evidence
-- Dataset scope: CUB-200-2011 (`11,788` images, `200` classes).
-- Training trend (`notebooks/pytorch_birdimages.ipynb`):
-  - Epoch 1: train acc `0.6400`, val acc `0.5336`
-  - Epoch 2: train acc `0.7028`, val acc `0.5333`
-  - Epoch 3: train acc `0.7318`, val acc `0.5519`
-- Deliverables: persisted model weights and class map used directly in multimodal fusion integration.
-
-## Limitations + Next step
-- Validation accuracy plateaued in this short run; next step is longer training with staged unfreezing/LR scheduling.
-- Current reporting is mostly headline accuracy; next step is class-level error analysis and calibration to identify failure modes.
+Title: PyTorch Bird Images Classifier
+Summary: Created a reproducible image-classification baseline for 200 bird species and exported artifacts for downstream multimodal integration.
+Role: ML engineer owning data preparation, training workflow, evaluation, and artifact packaging.
+Tech: PyTorch, torchvision, CUB-200-2011 dataset, Apple MPS, Jupyter.
+Problem: Needed a reliable image model baseline that could be integrated into a broader multimodal bird identification pipeline.
+Approach: Built a deterministic train/validation split, applied lightweight augmentation, used transfer learning with controlled fine-tuning, and prioritized fast end-to-end validation before deeper optimization.
+TechnicalHighlights:
+- Prepared class-preserving 80/20 data splits for repeatable training runs.
+- Standardized preprocessing to 224x224 inputs with minimal augmentation for comparability.
+- Trained transfer-learning baseline over 3 epochs to validate the full training-to-artifact path quickly.
+- Exported model weights and class mapping for reuse in fusion workflows.
+Impact:
+- Reached 55.19% validation accuracy at epoch 3 on a 200-class fine-grained dataset.
+- De-risked multimodal integration by producing stable, reusable inference artifacts.
+- Provided a concrete baseline for subsequent tuning and error analysis.
+NextSteps:
+- Extend training with staged unfreezing and learning-rate scheduling.
+- Add per-class diagnostics to isolate confusion-heavy species.
+- Calibrate probabilities for more reliable downstream fusion decisions.

@@ -1,11 +1,14 @@
-# About
+## Professional background
+I am a Senior Full-Stack Engineer with end-to-end ownership across product architecture, implementation, and delivery. I focus on clear system design, pragmatic technical decisions, and shipping maintainable software under real constraints.
 
-I'm Sara McGhee, a Full-Stack Engineer and creative technologist focused on building systems that are clear, fast, and maintainable.
+## Current focus (AI/ML direction)
+I am transitioning deeper into AI/ML by building practical model-powered features tied to real workflows. Recent work includes image classification, birdsong audio baselines, and multimodal fusion logic that combines model outputs into a single, usable recommendation path.
 
-I build end-to-end products across frontend, backend, and ML-adjacent workflows. My approach starts with constraints: define the failure modes, choose the lightest architecture that meets the goal, and ship in small iterations that keep risk low.
+## Technical strengths
+- Translating ambiguous product goals into scoped technical plans
+- Building reliable React-based interfaces with performance-aware implementation
+- Designing reusable model-to-application integration layers
+- Producing inspectable, testable outputs that support iterative improvement
 
-Recent projects include fine-grained bird classification across image and audio pipelines, multimodal recommendation logic, and an interactive 3D portfolio built with React and Three.js. Across each project, I focus on practical decisions, reusable outputs, and clear implementation tradeoffs.
-
-Right now, I'm transitioning deeper into AI/ML by building practical, production-minded systems that connect models to real user workflows.
-
-I also bring a strong creative lens to engineering work. I care about visual storytelling, interaction design, and interfaces that make technical systems easier to trust.
+## Personal/creative element
+I bring a creative technologist mindset to engineering work. I care about visual clarity, interaction quality, and experiences that make complex systems feel understandable and credible.

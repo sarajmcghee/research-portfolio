@@ -1,29 +1,19 @@
-# Birdsong Audio Baseline
-
-## Overview
-I built an audio-only bird classifier using numeric song features and logistic regression. The goal was to create a fast, interpretable baseline that could anchor multimodal experiments.
-
-## Problem
-Before combining image and audio predictions, I needed a reliable audio reference model. It had to be easy to debug, quick to retrain, and simple to export for downstream use.
-
-## Approach
-I used a straightforward classical ML pipeline: `StandardScaler` plus `LogisticRegression`. I evaluated with both headline accuracy and confusion-matrix inspection, then exported artifacts with `joblib` for direct reuse.
-
-The tradeoff was intentional. I prioritized interpretability and speed over model complexity so this baseline could support fast iteration in later fusion work.
-
-## Technical highlights
-- Pipeline: feature scaling -> logistic regression (`max_iter=2000`) -> evaluation.
-- Metrics: accuracy plus class-level confusion matrix review.
-- Artifacts exported with `joblib`: model, scaler, feature columns, class labels.
-- Notebook: `notebooks/pytorch_birdSongs.ipynb`.
-- Media path: uses project card visual treatment in the portfolio UI.
-
-## Results/impact
-- Baseline test accuracy: `0.9781667268134248` (~`97.82%`) from notebook output.
-- Exported artifacts were reused directly in the multimodal fusion notebook.
-- Created a stable benchmark that reduced integration risk for later multimodal decision logic.
-
-## What I'd do next
-- Run robustness checks against noisy clips and distribution shift.
-- Add per-class precision/recall reporting to complement overall accuracy.
-- Compare logistic regression against lightweight tree/boosting baselines for tradeoff clarity.
+Title: Birdsong Audio Baseline
+Summary: Built a fast, interpretable audio classifier baseline to anchor multimodal bird-ID experiments.
+Role: ML engineer defining baseline strategy, training pipeline, and reusable artifact exports.
+Tech: scikit-learn, StandardScaler, LogisticRegression, joblib, Jupyter.
+Problem: Needed a trustworthy audio reference model that was quick to retrain and easy to inspect before combining with image predictions.
+Approach: Chose a classical ML pipeline optimized for speed and interpretability, then evaluated with accuracy and confusion-matrix review before exporting all required artifacts.
+TechnicalHighlights:
+- Implemented scaling plus logistic regression pipeline with max_iter tuned for convergence.
+- Reviewed confusion matrix behavior to validate class-level error patterns.
+- Exported model, scaler, feature columns, and class labels via joblib for integration reuse.
+- Designed the baseline specifically as a low-friction dependency for fusion experiments.
+Impact:
+- Achieved 97.82% test accuracy in baseline evaluation.
+- Reduced multimodal integration risk with stable, inspectable audio outputs.
+- Enabled faster iteration by avoiding heavyweight retraining requirements.
+NextSteps:
+- Add robustness checks against noisy and shifted audio samples.
+- Report per-class precision and recall alongside headline accuracy.
+- Benchmark against lightweight tree/boosting methods for tradeoff comparison.

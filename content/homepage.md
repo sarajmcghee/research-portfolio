@@ -1,32 +1,21 @@
-# Hero Copy
+HeroHeadline: Senior Full-Stack Engineer building production software today and practical AI/ML systems next.
+HeroSubtext: I design and ship end-to-end products with clear tradeoffs, measurable outcomes, and interfaces people trust.
+CTA: View Projects
 
-## Headline
-I build reliable full-stack products now, and practical AI systems next.
+Sections:
 
-## Subhead
-I'm a Full-Stack Engineer and creative technologist who ships production software with clear technical decisions and measurable outcomes.
-I'm currently focused on applying AI/ML to real workflows, not just demos.
+## Intro
+I build across frontend, backend, and ML workflows, with a focus on reliability, performance, and delivery speed. My current transition into AI/ML is grounded in production-minded implementation, not isolated experiments.
 
-## Primary CTA
-View Case Studies
+## Featured Projects
+- interactive-portfolio-3d-tree
+- pytorch-bird-images-classifier
+- birdsong-audio-baseline
+- multimodal-bird-id-fusion
 
-## Secondary CTA
-About Sara
-
-# Homepage Project Tiles
-
-## Interactive Portfolio with 3D Tree Scene
-React + Three.js portfolio with a real-time forest hero and multi-input camera controls.
-Built as a product-quality system across UX, rendering performance, and deployment.
-
-## PyTorch Bird Images Classifier
-Fine-grained bird classifier on CUB-200-2011 (`11,788` images, `200` classes) using transfer learning.
-Reached `55.19%` validation accuracy in 3 epochs and produced reusable artifacts for multimodal work.
-
-## Birdsong Audio Baseline
-Audio-only baseline using standardized numeric features and logistic regression.
-Hit `97.82%` test accuracy and established a fast, interpretable benchmark for fusion work.
-
-## Multimodal Bird ID (Audio + Image Fusion)
-Combined image and audio top-k predictions into one inspectable recommendation flow.
-Shipped as a modular integration layer without expensive retraining.
+## Skills / Focus Areas
+- Full-stack product engineering (React, APIs, deployment)
+- AI/ML integration into user-facing workflows
+- Multimodal data workflows (image + audio)
+- Performance-focused frontend architecture
+- Technical storytelling through interactive interfaces
