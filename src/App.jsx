@@ -617,16 +617,16 @@ export default function App() {
           <div>
             <h1>
               Sara McGhee
-              <span>Bird artist and React builder</span>
+              <span>Senior Full-Stack Engineer transitioning into AI/ML</span>
             </h1>
             <p className="lead">
-              I turn bird observation and drawing practice into interactive web experiences and
-              machine-learning experiments. The same process drives both: observe closely, simplify
-              structure, and build clear systems in React.
+              I build production-ready full-stack systems in React and Node, and I am extending that
+              foundation into practical AI/ML workflows. My portfolio shows how I turn research
+              prototypes into clear, shippable product experiences.
             </p>
             <div className="hero-actions">
-              <a className="button" href="#art-practice">See Art Practice</a>
-              <a className="button ghost" href="#tech-builds">Explore Tech Builds</a>
+              <a className="button" href="#tech-builds">Explore Tech Builds</a>
+              <a className="button ghost" href="#art-practice">See Art Practice</a>
             </div>
           </div>
           <div className="hero-canvas forest">

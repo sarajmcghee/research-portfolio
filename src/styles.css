@@ -240,6 +240,7 @@ h1 span {
   color: white;
   text-decoration: none;
   font-weight: 600;
+  box-shadow: var(--shadow-sm);
   transition: transform var(--motion-base) var(--ease-standard), box-shadow var(--motion-base) var(--ease-standard);
 }
 
@@ -249,14 +250,21 @@ h1 span {
 }
 
 .button.ghost {
-  background: transparent;
-  border: 1px solid rgba(31, 127, 168, 0.3);
-  color: var(--ink);
+  background: rgba(255, 255, 255, 0.56);
+  border: 1px solid rgba(11, 31, 34, 0.2);
+  color: rgba(11, 31, 34, 0.82);
+  box-shadow: none;
 }
 
 .hero-actions .button.ghost {
-  background: rgba(255, 255, 255, 0.72);
-  border-color: rgba(11, 31, 34, 0.2);
+  background: rgba(255, 255, 255, 0.62);
+  border-color: rgba(11, 31, 34, 0.22);
+}
+
+.hero-actions .button:not(.ghost) {
+  background: linear-gradient(120deg, var(--ink), #18657f);
+  color: #ffffff;
+  box-shadow: var(--shadow-md);
 }
 
 .section {
