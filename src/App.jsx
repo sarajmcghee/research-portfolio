@@ -129,6 +129,24 @@ const highlights = [
   }
 ];
 
+const artworkGallery = [
+  {
+    title: "Kingfisher Study",
+    image: kingfisherArt,
+    alt: "Kingfisher drawing by Sara McGhee"
+  },
+  {
+    title: "Crybaby Photo Study",
+    image: cryShot,
+    alt: "Crybaby artwork by Sara McGhee"
+  },
+  {
+    title: "Unearthed Enigma Visual",
+    image: enigShot,
+    alt: "Unearthed Enigma artwork by Sara McGhee"
+  }
+];
+
 export default function App() {
   const canvasRef = useRef(null);
 
@@ -545,10 +563,25 @@ export default function App() {
       <section className="section art">
         <div className="section-title">
           <h2>Art</h2>
-          <p>Original kingfisher study in colored pencil.</p>
+          <p>Selected artwork from my visual studies and experiments.</p>
         </div>
-        <div className="art-card">
-          <img src={kingfisherArt} alt="Kingfisher drawing by Sara McGhee" />
+        <div className="art-feed-link">
+          <a
+            className="button ghost"
+            href="https://www.instagram.com/mcberalance/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            More art + stories on Instagram
+          </a>
+        </div>
+        <div className="art-grid">
+          {artworkGallery.map((piece) => (
+            <figure className="art-card" key={piece.title}>
+              <img src={piece.image} alt={piece.alt} />
+              <figcaption>{piece.title}</figcaption>
+            </figure>
+          ))}
         </div>
       </section>
 

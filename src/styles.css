@@ -388,14 +388,31 @@ h1 span {
   box-shadow: var(--shadow);
 }
 
+.art-feed-link {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.art-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
 .art-card img {
   width: 100%;
   border-radius: 20px;
   display: block;
   object-fit: contain;
-  max-height: 720px;
+  height: 280px;
   background: #f0ece6;
   padding: 12px;
+}
+
+.art-card figcaption {
+  margin-top: 12px;
+  font-size: 0.95rem;
+  color: rgba(11, 31, 34, 0.78);
 }
 
 
