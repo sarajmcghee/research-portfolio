@@ -4,7 +4,9 @@ import * as FLORASYNTH from "florasynth";
 import chatShot from "./assets/chat.png";
 import cryShot from "./assets/cry.png";
 import enigShot from "./assets/enig.jpeg";
-import kingfisherArt from "./assets/king.jpg";
+import igKingfisherStudy from "./assets/instagram-art/DUOWvQ3EcRL.jpg";
+import igTargetPractice from "./assets/instagram-art/DHRzbtpOYiC.jpg";
+import igDrawingJourney from "./assets/instagram-art/DHKCTbouuDs.jpg";
 
 const projects = [
   {
@@ -131,19 +133,22 @@ const highlights = [
 
 const artworkGallery = [
   {
-    title: "Kingfisher Study",
-    image: kingfisherArt,
-    alt: "Kingfisher drawing by Sara McGhee"
+    title: "Kingfisher Study (Instagram)",
+    image: igKingfisherStudy,
+    alt: "Kingfisher drawing by Sara on Instagram",
+    url: "https://www.instagram.com/p/DUOWvQ3EcRL/"
   },
   {
-    title: "Crybaby Photo Study",
-    image: cryShot,
-    alt: "Crybaby artwork by Sara McGhee"
+    title: "Target Practice Sketch",
+    image: igTargetPractice,
+    alt: "Bird sketch artwork posted by Sara on Instagram",
+    url: "https://www.instagram.com/p/DHRzbtpOYiC/"
   },
   {
-    title: "Unearthed Enigma Visual",
-    image: enigShot,
-    alt: "Unearthed Enigma artwork by Sara McGhee"
+    title: "Drawing Hobby Return",
+    image: igDrawingJourney,
+    alt: "Bird drawing progress artwork posted by Sara on Instagram",
+    url: "https://www.instagram.com/p/DHKCTbouuDs/"
   }
 ];
 
@@ -156,28 +161,51 @@ export default function App() {
 
     const scene = new THREE.Scene();
     scene.fog = new THREE.Fog("#f4f0ea", 8, 32);
+    scene.background = new THREE.Color("#f7f3eb");
 
     const camera = new THREE.PerspectiveCamera(55, 1, 0.1, 200);
     camera.position.set(0, 2.6, 12);
 
     const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.outputColorSpace = THREE.SRGBColorSpace;
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.05;
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
     const world = new THREE.Group();
     scene.add(world);
 
     const ground = new THREE.Mesh(
       new THREE.PlaneGeometry(200, 200),
-      new THREE.MeshStandardMaterial({ color: "#e7e1d6" })
+      new THREE.MeshStandardMaterial({ color: "#e7e1d6", roughness: 0.95, metalness: 0.0 })
     );
     ground.rotation.x = -Math.PI / 2;
     ground.position.y = -0.6;
+    ground.receiveShadow = true;
     scene.add(ground);
 
     const sun = new THREE.DirectionalLight("#ffe5c2", 1.1);
-    sun.position.set(6, 10, 4);
+    sun.position.set(8, 12, 6);
+    sun.castShadow = true;
+    sun.shadow.mapSize.set(2048, 2048);
+    sun.shadow.camera.near = 0.1;
+    sun.shadow.camera.far = 60;
+    sun.shadow.camera.left = -18;
+    sun.shadow.camera.right = 18;
+    sun.shadow.camera.top = 18;
+    sun.shadow.camera.bottom = -18;
     scene.add(sun);
-    scene.add(new THREE.AmbientLight("#d9e6e4", 0.7));
+    scene.add(new THREE.HemisphereLight("#eef4ff", "#7f6b55", 0.45));
+
+    const fill = new THREE.DirectionalLight("#b8d7ff", 0.4);
+    fill.position.set(-7, 5, -4);
+    scene.add(fill);
+
+    const rim = new THREE.DirectionalLight("#ffd6b0", 0.28);
+    rim.position.set(-3, 3, 9);
+    scene.add(rim);
 
     let baseTree = null;
     const movement = {
@@ -209,10 +237,12 @@ export default function App() {
           if (child.isMesh) {
             child.geometry?.computeVertexNormals?.();
             child.material = new THREE.MeshStandardMaterial({
-              color: "#5a3a26",
-              roughness: 0.7,
-              metalness: 0.0
+              color: "#5e3f2d",
+              roughness: 0.82,
+              metalness: 0.03
             });
+            child.castShadow = true;
+            child.receiveShadow = true;
           }
         });
         treeGroup.add(meshes.mesh);
@@ -222,11 +252,13 @@ export default function App() {
           if (child.isMesh) {
             child.geometry?.computeVertexNormals?.();
             child.material = new THREE.MeshStandardMaterial({
-              color: "#c7392f",
-              roughness: 0.5,
+              color: "#be4237",
+              roughness: 0.72,
               metalness: 0.0,
               flatShading: false
             });
+            child.castShadow = true;
+            child.receiveShadow = true;
           }
         });
         treeGroup.add(meshes.foliageMesh);
@@ -434,16 +466,16 @@ export default function App() {
           <div>
             <h1>
               Sara McGhee
-              <span>Minimalist AI portfolio with a love for birds</span>
+              <span>Machine learning portfolio inspired by field observation</span>
             </h1>
             <p className="lead">
-              I build focused machine‑learning experiments that respect data locality, model clarity, and
-              nature‑inspired aesthetics. My latest work explores how transfer learning can make a compact
-              bird classifier both accurate and fast to iterate.
+              I build compact ML experiments focused on clear model behavior, fast iteration, and
+              nature-grounded evaluation. Current work explores transfer learning for practical bird
+              classification pipelines.
             </p>
             <div className="hero-actions">
-              <a className="button" href="#work">Latest PyTorch work</a>
-              <a className="button ghost" href="#about">About</a>
+              <a className="button" href="#work">View PyTorch Case Studies</a>
+              <a className="button ghost" href="#about">Read My Approach</a>
             </div>
           </div>
           <div className="hero-canvas forest">
@@ -535,28 +567,39 @@ export default function App() {
           <p>A curated grid tracing the evolution of tools, languages, and focus.</p>
         </div>
         <div className="grid">
-          {highlights.map((item) => (
-            <a className="highlight-card" key={item.title} href={item.url} target="_blank" rel="noreferrer">
-              {item.image ? (
-                <img className="shot" src={item.image} alt={`${item.title} screenshot`} />
-              ) : (
-                <div className={`thumb ${item.tone}`} aria-hidden="true" />
-              )}
-              <div>
-                <div className="highlight-head">
-                  <h3>{item.title}</h3>
-                  <span className="pill">{item.year}</span>
+          {highlights.map((item) => {
+            const primaryUrl = item.demo || item.url;
+
+            return (
+              <article className="highlight-card" key={item.title}>
+                <a className="highlight-media-link" href={primaryUrl} target="_blank" rel="noreferrer">
+                  {item.image ? (
+                    <img className="shot" src={item.image} alt={`${item.title} screenshot`} />
+                  ) : (
+                    <div className={`thumb ${item.tone}`} aria-hidden="true" />
+                  )}
+                </a>
+                <div>
+                  <div className="highlight-head">
+                    <h3>{item.title}</h3>
+                    <span className="pill">{item.year}</span>
+                  </div>
+                  <p>{item.summary}</p>
+                  <div className="highlight-meta">
+                    <span className="chip">{item.language}</span>
+                    {item.demo ? (
+                      <a className="demo" href={item.demo} target="_blank" rel="noreferrer">
+                        Live
+                      </a>
+                    ) : null}
+                    <a className="repo-link" href={item.url} target="_blank" rel="noreferrer">
+                      Repo
+                    </a>
+                  </div>
                 </div>
-                <p>{item.summary}</p>
-                <div className="highlight-meta">
-                  <span className="chip">{item.language}</span>
-                  {item.demo ? (
-                    <span className="demo">Live</span>
-                  ) : null}
-                </div>
-              </div>
-            </a>
-          ))}
+              </article>
+            );
+          })}
         </div>
       </section>
 
@@ -578,8 +621,14 @@ export default function App() {
         <div className="art-grid">
           {artworkGallery.map((piece) => (
             <figure className="art-card" key={piece.title}>
-              <img src={piece.image} alt={piece.alt} />
-              <figcaption>{piece.title}</figcaption>
+              <a href={piece.url} target="_blank" rel="noreferrer">
+                <img src={piece.image} alt={piece.alt} />
+              </a>
+              <figcaption>
+                <a className="link" href={piece.url} target="_blank" rel="noreferrer">
+                  {piece.title}
+                </a>
+              </figcaption>
             </figure>
           ))}
         </div>
