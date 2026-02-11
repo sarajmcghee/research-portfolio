@@ -43,6 +43,9 @@
   --shadow-md: 0 16px 40px rgba(11, 31, 34, 0.12);
   --shadow-lg: 0 24px 60px rgba(11, 31, 34, 0.16);
   --shadow: var(--shadow-lg);
+  --elevation-tier-1: var(--shadow-sm);
+  --elevation-tier-2: var(--shadow-md);
+  --elevation-tier-3: var(--shadow-lg);
 
   --motion-fast: 120ms;
   --motion-base: 180ms;
@@ -95,7 +98,7 @@ body::before {
   padding: var(--space-7);
   border-radius: var(--radius-xl);
   background: var(--card);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--elevation-tier-2);
   border: 1px solid var(--border-soft);
   position: relative;
   overflow: hidden;
@@ -325,7 +328,7 @@ h1 span {
   background: var(--card);
   border-radius: var(--radius-lg);
   padding: var(--space-6);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--elevation-tier-1);
   border: 1px solid var(--border-soft);
   display: grid;
   gap: var(--space-5);
@@ -400,7 +403,7 @@ h1 span {
   padding: var(--space-5);
   border-radius: var(--radius-lg);
   background: var(--card);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--elevation-tier-1);
   border: 1px solid var(--border-soft);
   text-decoration: none;
   color: inherit;
@@ -409,7 +412,7 @@ h1 span {
 
 .highlight-card:hover {
   transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--elevation-tier-2);
 }
 
 .highlight-media-link {
@@ -497,7 +500,7 @@ h1 span {
   background: var(--card);
   border-radius: var(--radius-lg);
   padding: var(--space-5);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--elevation-tier-1);
   border: 1px solid var(--border-soft);
 }
 
@@ -687,7 +690,7 @@ code {
   border-radius: var(--radius-lg);
   padding: var(--space-5);
   border: 1px solid var(--border-soft);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--elevation-tier-1);
 }
 
 .panel h3 {
