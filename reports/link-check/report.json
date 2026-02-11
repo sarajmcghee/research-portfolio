@@ -1,56 +1,66 @@
 {
-  "generatedAt": "2026-02-11T00:02:18.445Z",
+  "generatedAt": "2026-02-11T00:13:42.969Z",
   "config": {
-    "base": "https://sarajmcghee.github.io/research-portfolio/",
+    "base": "http://127.0.0.1:4173/research-portfolio/",
     "staging": "",
-    "ignoreDomains": [],
+    "ignoreDomains": [
+      "github.com",
+      "instagram.com",
+      "sarajmcghee.github.io"
+    ],
     "failOnExternal": false,
     "timeoutMs": 12000,
     "maxPages": 120,
     "targets": [
-      "https://sarajmcghee.github.io/research-portfolio/"
+      "http://127.0.0.1:4173/research-portfolio/"
     ]
   },
   "targets": [
     {
-      "target": "https://sarajmcghee.github.io/research-portfolio/",
+      "target": "http://127.0.0.1:4173/research-portfolio/",
       "crawledPages": [
-        "https://sarajmcghee.github.io/research-portfolio/"
+        "http://127.0.0.1:4173/research-portfolio/"
       ],
       "checkedUrlCount": 0,
-      "brokenInternal": [
-        {
-          "source": "(crawl)",
-          "url": "https://sarajmcghee.github.io/research-portfolio/",
-          "status": 0,
-          "error": "fetch failed"
-        }
-      ],
+      "brokenInternal": [],
       "brokenExternal": [],
       "redirectChains": [],
       "missingAssets": [],
-      "seoIssues": []
+      "seoIssues": [
+        {
+          "page": "http://127.0.0.1:4173/research-portfolio/",
+          "missing": [
+            "meta description",
+            "og:title",
+            "og:description",
+            "og:image"
+          ]
+        }
+      ]
     }
   ],
-  "brokenInternal": [
-    {
-      "source": "(crawl)",
-      "url": "https://sarajmcghee.github.io/research-portfolio/",
-      "status": 0,
-      "error": "fetch failed"
-    }
-  ],
+  "brokenInternal": [],
   "brokenExternal": [],
   "redirectChains": [],
   "missingAssets": [],
-  "seoIssues": [],
+  "seoIssues": [
+    {
+      "page": "http://127.0.0.1:4173/research-portfolio/",
+      "missing": [
+        "meta description",
+        "og:title",
+        "og:description",
+        "og:image"
+      ]
+    }
+  ],
   "summary": {
     "pagesCrawled": 1,
     "urlsChecked": 0,
-    "brokenInternal": 1,
+    "brokenInternal": 0,
     "brokenExternal": 0,
     "redirectChains": 0,
     "missingAssets": 0,
-    "seoIssues": 0
+    "seoIssues": 1
   }
 }
