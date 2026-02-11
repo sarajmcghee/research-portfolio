@@ -1,13 +1,13 @@
 # Interactive Portfolio with 3D Tree Scene
 
 ## Overview
-I built this portfolio as a React + Vite single-page app with an interactive Three.js forest hero. It is designed to show product-level ownership, not just project screenshots.
+I built this portfolio as a React + Vite single-page app with an interactive Three.js forest hero. The goal was to show engineering depth through a working system, not static screenshots.
 
 ## Problem
 Most portfolio sites are static and interchangeable. I wanted a site that communicates technical depth quickly while still loading fast and staying maintainable.
 
 ## Approach
-I treated the hero as a real system: procedural tree generation, constrained camera controls, and mobile joystick input. I paired that with structured content sections so the visual layer supports the case studies instead of overwhelming them.
+I treated the hero as a real system: procedural tree generation, constrained camera controls, and mobile joystick input. I paired that with structured content sections so the visual layer supports the case studies instead of distracting from them.
 
 I made explicit tradeoffs for reliability: bounded movement, controlled render size, and a single-page architecture that deploys cleanly to GitHub Pages.
 
@@ -23,7 +23,7 @@ I made explicit tradeoffs for reliability: bounded movement, controlled render s
 
 ## Results/impact
 - Turned first impression into an interactive scene while keeping project content scannable.
-- Demonstrated end-to-end ownership across design, rendering, input handling, and deployment.
+- Demonstrated full ownership across design, rendering, input handling, and deployment.
 - Established a reusable platform for future case-study and performance iterations.
 
 ## What I'd do next

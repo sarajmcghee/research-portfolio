@@ -671,7 +671,7 @@ export default function App() {
           <div>
             <h1>
               Sara McGhee
-              <span>Senior Full-Stack Engineer transitioning into AI/ML</span>
+              <span>Full-Stack Engineer transitioning into AI/ML</span>
             </h1>
             <p className="lead">
               I build production-ready full-stack systems in React and Node, and I am extending that

@@ -6,7 +6,7 @@
 - Outcome: Delivered a modular, reusable recommendation flow that reduced integration friction and preserved fast iteration speed.
 
 ## Overview
-This project solved a product problem more than a modeling problem: two model outputs are harder to use than one clear recommendation. I optimized for explainability and delivery speed, so each modality could continue improving independently while the fusion layer stayed simple to inspect.
+This project solved a product problem more than a modeling problem: two separate outputs are harder to use than one clear recommendation. I optimized for explainability and delivery speed so each modality could continue improving independently while the fusion layer stayed simple to inspect.
 
 ## What I changed
 - Reused persisted artifacts from prior work (`image_model.pth`, `audio_model.joblib`, `audio_scaler.joblib`) instead of introducing a new retraining pipeline.

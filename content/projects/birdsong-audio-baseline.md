@@ -1,15 +1,15 @@
 # Birdsong Audio Baseline
 
 ## Overview
-I built an audio-only bird classifier baseline using numeric song features and logistic regression. The goal was a fast, interpretable benchmark that could be reused in multimodal experiments.
+I built an audio-only bird classifier using numeric song features and logistic regression. The goal was to create a fast, interpretable baseline that could anchor multimodal experiments.
 
 ## Problem
-Before fusing image and audio signals, I needed a reliable audio reference model. It had to be easy to debug, quick to retrain, and simple to serialize for downstream use.
+Before combining image and audio predictions, I needed a reliable audio reference model. It had to be easy to debug, quick to retrain, and simple to export for downstream use.
 
 ## Approach
-I used a straightforward classical ML pipeline: `StandardScaler` plus `LogisticRegression`. I evaluated with headline accuracy and confusion-matrix inspection, then exported the full artifact set with `joblib`.
+I used a straightforward classical ML pipeline: `StandardScaler` plus `LogisticRegression`. I evaluated with both headline accuracy and confusion-matrix inspection, then exported artifacts with `joblib` for direct reuse.
 
-The tradeoff was intentional. I prioritized interpretability and speed over model complexity so this baseline could anchor later experiments.
+The tradeoff was intentional. I prioritized interpretability and speed over model complexity so this baseline could support fast iteration in later fusion work.
 
 ## Technical highlights
 - Pipeline: feature scaling -> logistic regression (`max_iter=2000`) -> evaluation.

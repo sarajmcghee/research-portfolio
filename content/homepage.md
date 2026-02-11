@@ -1,10 +1,11 @@
 # Hero Copy
 
 ## Headline
-I build ML and web systems end-to-end, from first notebook to shipped interface.
+I build reliable full-stack products now, and practical AI systems next.
 
 ## Subhead
-My work focuses on practical model pipelines, clear decision logic, and frontends that make technical systems easy to trust.
+I'm a Full-Stack Engineer and creative technologist who ships production software with clear technical decisions and measurable outcomes.
+I'm currently focused on applying AI/ML to real workflows, not just demos.
 
 ## Primary CTA
 View Case Studies
@@ -16,16 +17,16 @@ About Sara
 
 ## Interactive Portfolio with 3D Tree Scene
 React + Three.js portfolio with a real-time forest hero and multi-input camera controls.
-Built to prove system ownership across UX, rendering, performance, and deployment.
+Built as a product-quality system across UX, rendering performance, and deployment.
 
 ## PyTorch Bird Images Classifier
 Fine-grained bird classifier on CUB-200-2011 (`11,788` images, `200` classes) using transfer learning.
-Reached `55.19%` validation accuracy in 3 epochs and produced reusable model artifacts.
+Reached `55.19%` validation accuracy in 3 epochs and produced reusable artifacts for multimodal work.
 
 ## Birdsong Audio Baseline
 Audio-only baseline using standardized numeric features and logistic regression.
-Hit `97.82%` test accuracy and established a reliable benchmark for fusion work.
+Hit `97.82%` test accuracy and established a fast, interpretable benchmark for fusion work.
 
 ## Multimodal Bird ID (Audio + Image Fusion)
 Combined image and audio top-k predictions into one inspectable recommendation flow.
-Shipped as a modular integration layer without expensive multimodal retraining.
+Shipped as a modular integration layer without expensive retraining.

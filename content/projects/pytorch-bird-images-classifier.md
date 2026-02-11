@@ -6,7 +6,7 @@
 - Outcome: Validated the full train-to-artifact path quickly and reached `55.19%` validation accuracy in 3 epochs, with reusable outputs consumed by the fusion project.
 
 ## Overview
-I built this as an execution-first baseline: prove the pipeline, lock artifact contracts, and make iteration fast. Instead of chasing max accuracy immediately, I prioritized a stable system that could be improved incrementally without reworking data flow or downstream interfaces.
+I built this as an execution-first baseline: prove the pipeline, lock artifact contracts, and make iteration fast. Instead of chasing maximum accuracy immediately, I prioritized a stable system that could be improved incrementally without reworking data flow or downstream interfaces.
 
 ## What I changed
 - Implemented a deterministic `80/20` class-preserving split to produce stable train/validation folders (`splits/train`, `splits/valid`).
