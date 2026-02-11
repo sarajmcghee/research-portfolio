@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import * as FLORASYNTH from "florasynth";
 import chatShot from "./assets/chat.png";
@@ -8,13 +8,14 @@ import igKingfisherStudy from "./assets/instagram-art/DUOWvQ3EcRL.jpg";
 import igTargetPractice from "./assets/instagram-art/DHRzbtpOYiC.jpg";
 import igDrawingJourney from "./assets/instagram-art/DHKCTbouuDs.jpg";
 import igWoodpeckerInspo from "./assets/instagram-art/DJMpq_au-ye.jpg";
+import igDrawingDetail from "./assets/instagram-art/DHKCN5cujm_.jpg";
 
 const projects = [
   {
     title: "PyTorch Bird Images Classifier",
     subtitle: "Transfer learning for fine‑grained bird species recognition",
     summary:
-      "A local training pipeline that prepares a bird image dataset, fine‑tunes a ResNet-style model, and saves reusable artifacts for downstream inference.",
+      "Built a reproducible transfer-learning baseline on CUB-200-2011 and reached 55.19% validation accuracy in 3 epochs while shipping reusable model artifacts.",
     details: [
       "Dataset: Kaggle 200 Bird Species (11,788 images, CUB‑200‑2011)",
       "Data split: reproducible 80/20 train/validation with class‑preserving folders",
@@ -33,7 +34,7 @@ const projects = [
     title: "Multimodal Bird ID (Audio + Image Fusion)",
     subtitle: "Cross‑checking top‑k predictions to boost confidence",
     summary:
-      "Combines a fine‑tuned ResNet image classifier with a trained audio model and a lightweight agreement check for better bird identification.",
+      "Shipped a single recommendation flow by fusing top-k audio and image predictions with label mapping, reusing validated model artifacts without retraining.",
     details: [
       "Image model: ResNet18 loaded from saved PyTorch weights",
       "Audio model: joblib‑loaded classifier with standardized features",
@@ -181,11 +182,38 @@ const artworkGallery = [
     phase: "Reference study",
     medium: "Wildlife observation",
     url: "https://www.instagram.com/p/DJMpq_au-ye/"
+  },
+  {
+    title: "Drawing Hobby Return (Detail)",
+    image: igDrawingDetail,
+    alt: "Bird drawing detail posted by Sara on Instagram",
+    phase: "Detail pass",
+    medium: "Mixed media",
+    url: "https://www.instagram.com/p/DHKCTbouuDs/"
   }
 ];
 
 export default function App() {
   const canvasRef = useRef(null);
+  const [activeArtIndex, setActiveArtIndex] = useState(0);
+  const [isArtAutoPaused, setIsArtAutoPaused] = useState(false);
+  const activeArt = artworkGallery[activeArtIndex];
+
+  const showNextArt = () => {
+    setActiveArtIndex((prev) => (prev + 1) % artworkGallery.length);
+  };
+
+  const showPrevArt = () => {
+    setActiveArtIndex((prev) => (prev - 1 + artworkGallery.length) % artworkGallery.length);
+  };
+
+  useEffect(() => {
+    if (isArtAutoPaused) return undefined;
+    const intervalId = window.setInterval(() => {
+      setActiveArtIndex((prev) => (prev + 1) % artworkGallery.length);
+    }, 5000);
+    return () => window.clearInterval(intervalId);
+  }, [isArtAutoPaused]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -757,23 +785,58 @@ export default function App() {
             More art + stories on Instagram
           </a>
         </div>
-        <div className="art-grid">
-          {artworkGallery.map((piece) => (
-            <figure className="art-card" key={piece.title}>
-              <a href={piece.url} target="_blank" rel="noreferrer">
-                <img src={piece.image} alt={piece.alt} />
+        <div
+          className="art-carousel"
+          onMouseEnter={() => setIsArtAutoPaused(true)}
+          onMouseLeave={() => setIsArtAutoPaused(false)}
+          onFocusCapture={() => setIsArtAutoPaused(true)}
+          onBlurCapture={() => setIsArtAutoPaused(false)}
+        >
+          <div className="art-stage">
+            <button
+              className="carousel-control"
+              type="button"
+              onClick={showPrevArt}
+              aria-label="Previous artwork"
+            >
+              ←
+            </button>
+            <figure className="art-card">
+              <a href={activeArt.url} target="_blank" rel="noreferrer">
+                <img src={activeArt.image} alt={activeArt.alt} />
               </a>
               <figcaption>
-                <a className="link" href={piece.url} target="_blank" rel="noreferrer">
-                  {piece.title}
+                <a className="link" href={activeArt.url} target="_blank" rel="noreferrer">
+                  {activeArt.title}
                 </a>
                 <div className="art-meta">
-                  <span className="chip">{piece.phase}</span>
-                  <span className="chip">{piece.medium}</span>
+                  <span className="chip">{activeArt.phase}</span>
+                  <span className="chip">{activeArt.medium}</span>
                 </div>
               </figcaption>
             </figure>
-          ))}
+            <button
+              className="carousel-control"
+              type="button"
+              onClick={showNextArt}
+              aria-label="Next artwork"
+            >
+              →
+            </button>
+          </div>
+          <div className="art-thumbs" aria-label="Artwork thumbnails">
+            {artworkGallery.map((piece, idx) => (
+              <button
+                key={piece.title}
+                type="button"
+                className={`art-thumb${idx === activeArtIndex ? " is-active" : ""}`}
+                onClick={() => setActiveArtIndex(idx)}
+                aria-label={`Show ${piece.title}`}
+              >
+                <img src={piece.image} alt={piece.alt} />
+              </button>
+            ))}
+          </div>
         </div>
       </section>
 

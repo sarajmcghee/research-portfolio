@@ -1,31 +1,28 @@
 # PyTorch Bird Images Classifier
 
+## At a glance
+- Goal: Build a local, reproducible image-classification baseline for fine-grained bird species (`200` classes) that could plug directly into later multimodal work.
+- Approach: Transfer learning on CUB-200-2011 with deterministic data splitting, lightweight augmentation, and short-cycle fine-tuning on Apple MPS.
+- Outcome: Validated the full train-to-artifact path quickly and reached `55.19%` validation accuracy in 3 epochs, with reusable outputs consumed by the fusion project.
+
 ## Overview
-I built a local transfer-learning pipeline for fine-grained bird classification. It takes raw CUB-200-2011 images, creates reproducible train/validation splits, fine-tunes a ResNet18-style model, and exports artifacts for downstream inference.
+I built this as an execution-first baseline: prove the pipeline, lock artifact contracts, and make iteration fast. Instead of chasing max accuracy immediately, I prioritized a stable system that could be improved incrementally without reworking data flow or downstream interfaces.
 
-## Problem
-Bird species in CUB-200-2011 are visually close, so class boundaries are subtle. I needed a baseline that could run locally, iterate quickly, and still produce outputs stable enough for integration into a larger bird-ID system.
+## What I changed
+- Implemented a deterministic `80/20` class-preserving split to produce stable train/validation folders (`splits/train`, `splits/valid`).
+- Standardized image preprocessing to `224x224` with targeted augmentation (random horizontal flip in training only) to keep the baseline simple and comparable.
+- Used transfer learning with early-layer freezing and a reduced fine-tuning LR to shorten training time while preserving pretrained features.
+- Constrained initial training to `3` epochs intentionally to validate end-to-end reliability before deeper hyperparameter work.
+- Exported inference-ready artifacts (`image_model.pth` + class-index mapping) so later notebooks could consume the model without retraining.
 
-## Approach
-I optimized for delivery speed first, not maximum leaderboard performance. The pipeline builds class-preserving 80/20 splits, applies 224x224 transforms, freezes early backbone layers, and fine-tunes the classifier head with Adam on Apple MPS.
+## Evidence
+- Dataset scope: CUB-200-2011 (`11,788` images, `200` classes).
+- Training trend (`notebooks/pytorch_birdimages.ipynb`):
+  - Epoch 1: train acc `0.6400`, val acc `0.5336`
+  - Epoch 2: train acc `0.7028`, val acc `0.5333`
+  - Epoch 3: train acc `0.7318`, val acc `0.5519`
+- Deliverables: persisted model weights and class map used directly in multimodal fusion integration.
 
-I limited training to 3 epochs to validate the end-to-end path before tuning schedules and unfreezing depth. That tradeoff made iteration fast while still proving the pipeline and artifact contracts.
-
-## Technical highlights
-- Dataset: CUB-200-2011 via Kaggle (`11,788` images, `200` classes).
-- Deterministic 80/20 split into `splits/train` and `splits/valid`.
-- Training transforms: resize to `224x224` and random horizontal flip.
-- Transfer learning with reduced LR and early-layer freezing.
-- Artifacts exported: `image_model.pth` and class-index mapping.
-- Notebook: `notebooks/pytorch_birdimages.ipynb`.
-- Media path: uses project card visual treatment in the portfolio UI.
-
-## Results/impact
-- Reached `0.5519` validation accuracy (`55.19%`) at epoch 3 (`notebooks/pytorch_birdimages.ipynb`).
-- Produced reusable model artifacts that were consumed directly by the multimodal fusion project.
-- Established a repeatable image pipeline with stable interfaces, so later improvements can focus on model quality instead of plumbing.
-
-## What I'd do next
-- Extend training past three epochs with schedule tuning and unfreezing strategy.
-- Add class imbalance checks and per-class error analysis.
-- Export an inference script/API endpoint to standardize production-style evaluation.
+## Limitations + Next step
+- Validation accuracy plateaued in this short run; next step is longer training with staged unfreezing/LR scheduling.
+- Current reporting is mostly headline accuracy; next step is class-level error analysis and calibration to identify failure modes.

@@ -1,31 +1,27 @@
 # Multimodal Bird ID (Audio + Image Fusion)
 
+## At a glance
+- Goal: Turn separate audio and image bird predictions into one decision path that is easier to trust and act on.
+- Approach: Fuse top-k outputs from saved unimodal models with explicit label mapping and agreement logic instead of retraining a heavy joint model.
+- Outcome: Delivered a modular, reusable recommendation flow that reduced integration friction and preserved fast iteration speed.
+
 ## Overview
-I combined existing image and audio bird classifiers into one decision flow that cross-checks predictions before returning a recommendation. The focus was better decision clarity without retraining a heavy multimodal model.
+This project solved a product problem more than a modeling problem: two model outputs are harder to use than one clear recommendation. I optimized for explainability and delivery speed, so each modality could continue improving independently while the fusion layer stayed simple to inspect.
 
-## Problem
-Single-modality outputs can be brittle in field-like conditions. Photos can be unclear, audio can be noisy, and conflicting predictions are hard to interpret. I needed a low-overhead method to combine both signals into one explainable result.
+## What I changed
+- Reused persisted artifacts from prior work (`image_model.pth`, `audio_model.joblib`, `audio_scaler.joblib`) instead of introducing a new retraining pipeline.
+- Added top-k utilities for both modalities, making overlap checks explicit rather than relying on only top-1 guesses.
+- Implemented canonical label mapping so audio/image class names can reconcile before fusion decisions.
+- Defined a deterministic agreement-and-confidence path that returns one recommendation instead of two disconnected outputs.
+- Structured the notebook as an interactive integration harness for fast testing of fusion behavior and thresholds.
 
-## Approach
-I chose lightweight decision fusion instead of end-to-end multimodal retraining. The notebook loads a saved ResNet image model and a saved audio classifier, computes top-k candidates for each modality, and checks agreement through canonical label mapping.
+## Evidence
+- Artifacts in active use: `image_model.pth`, `audio_model.joblib`, `audio_scaler.joblib`.
+- Upstream evidence reused by this fusion layer:
+  - Image model baseline reached `55.19%` validation accuracy at epoch 3.
+  - Audio baseline reported `97.82%` accuracy and includes confusion-matrix evaluation (`notebooks/pytorch_birdSongs.ipynb`).
+- Integration result: one recommendation interface built from existing validated models, with no retraining required to ship fusion logic.
 
-This kept the system modular. Each model can improve independently while the fusion logic remains inspectable and easy to tune.
-
-## Technical highlights
-- Loads persisted artifacts: `image_model.pth`, `audio_model.joblib`, `audio_scaler.joblib`.
-- Runs top-k prediction utilities for image and audio paths.
-- Uses optional label canonicalization to reconcile naming differences across modalities.
-- Returns one recommendation based on overlap/confidence logic rather than separate model outputs.
-- Built as an interactive helper notebook for fast integration cycles.
-- Notebook: `notebooks/pytorch_fusion_audio_image_Bird.ipynb`.
-- Media path: uses project card visual treatment in the portfolio UI.
-
-## Results/impact
-- Shipped a single recommendation flow instead of two disconnected predictions.
-- Reused existing artifacts directly, avoiding retraining and reducing integration time.
-- Proxy impact: enabled rapid fusion iteration with no changes to underlying model training pipelines.
-
-## What I'd do next
-- Log calibration metrics (agreement rate, top-1 uplift, failure buckets) on a held-out multimodal test set.
-- Replace heuristic agreement with a learned meta-classifier once enough paired data is available.
-- Add confidence thresholds to route uncertain cases into fallback UX.
+## Limitations + Next step
+- Fusion is currently rule-based; next step is to measure agreement uplift on a paired multimodal holdout set and calibrate confidence.
+- No formal uncertainty routing yet; next step is thresholding plus fallback behavior when modalities disagree strongly.

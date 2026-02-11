@@ -478,14 +478,20 @@ h1 span {
   justify-content: flex-start;
 }
 
-.art-grid {
+.art-carousel {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--space-4);
+}
+
+.art-stage {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
   gap: var(--space-5);
 }
 
 .art-card img {
-  width: min(240px, 100%);
+  width: min(440px, 100%);
   border-radius: var(--radius-md);
   display: block;
   object-fit: cover;
@@ -500,13 +506,57 @@ h1 span {
   margin-top: var(--space-3);
   font-size: 0.95rem;
   color: rgba(11, 31, 34, 0.78);
+  text-align: center;
 }
 
 .art-meta {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   gap: var(--space-2);
   margin-top: var(--space-2);
+}
+
+.carousel-control {
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--border-soft);
+  border-radius: 999px;
+  background: var(--card);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  font-size: 1.15rem;
+}
+
+.carousel-control:hover {
+  filter: brightness(0.98);
+}
+
+.art-thumbs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(78px, 1fr));
+  gap: var(--space-2);
+}
+
+.art-thumb {
+  border: 1px solid var(--border-soft);
+  background: var(--card);
+  border-radius: var(--radius-sm);
+  padding: 6px;
+  cursor: pointer;
+}
+
+.art-thumb img {
+  width: 100%;
+  display: block;
+  border-radius: 10px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.art-thumb.is-active {
+  border-color: var(--teal);
+  box-shadow: 0 0 0 2px rgba(11, 106, 115, 0.18);
 }
 
 .card-header p {
@@ -714,8 +764,16 @@ button:focus-visible,
   }
 
   .art-card img {
-    width: min(240px, 100%);
+    width: min(340px, 100%);
     height: auto;
+  }
+
+  .art-stage {
+    grid-template-columns: 1fr;
+  }
+
+  .carousel-control {
+    justify-self: center;
   }
 }
 
