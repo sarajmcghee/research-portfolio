@@ -7,6 +7,10 @@ import enigShot from "./assets/enig.jpeg";
 import igKingfisherStudy from "./assets/instagram-art/DUOWvQ3EcRL.jpg";
 import igTargetPractice from "./assets/instagram-art/DHRzbtpOYiC.jpg";
 import igDrawingJourney from "./assets/instagram-art/DHKCTbouuDs.jpg";
+import igWoodpeckerInspo from "./assets/instagram-art/DJMpq_au-ye.jpg";
+import igDeckBirdMoment from "./assets/instagram-art/DHf6cVMOEr0.jpg";
+import igMaineMoment from "./assets/instagram-art/C8f74mIuPzo.jpg";
+import igBridgeShadows from "./assets/instagram-art/C5QhZ4wu7-8.jpg";
 
 const projects = [
   {
@@ -149,6 +153,30 @@ const artworkGallery = [
     image: igDrawingJourney,
     alt: "Bird drawing progress artwork posted by Sara on Instagram",
     url: "https://www.instagram.com/p/DHKCTbouuDs/"
+  },
+  {
+    title: "Red-Bellied Woodpecker Inspo",
+    image: igWoodpeckerInspo,
+    alt: "Red-bellied woodpecker inspired artwork post by Sara on Instagram",
+    url: "https://www.instagram.com/p/DJMpq_au-ye/"
+  },
+  {
+    title: "Deck Bird Moment",
+    image: igDeckBirdMoment,
+    alt: "Nature bird photo posted by Sara on Instagram",
+    url: "https://www.instagram.com/p/DHf6cVMOEr0/"
+  },
+  {
+    title: "Maine Light Study",
+    image: igMaineMoment,
+    alt: "Maine landscape photo posted by Sara on Instagram",
+    url: "https://www.instagram.com/p/C8f74mIuPzo/"
+  },
+  {
+    title: "Bridge Shadows",
+    image: igBridgeShadows,
+    alt: "Nature scene photo posted by Sara on Instagram",
+    url: "https://www.instagram.com/p/C5QhZ4wu7-8/"
   }
 ];
 
@@ -418,7 +446,7 @@ export default function App() {
       const strafe = (idle ? 0.1 : movement.strafe) * speed;
 
       camera.position.x += Math.sin(pointer.yaw) * forward + Math.cos(pointer.yaw) * strafe;
-      camera.position.z += Math.cos(pointer.yaw) * forward - Math.sin(pointer.yaw) * strafe;
+      camera.position.z += -Math.cos(pointer.yaw) * forward + Math.sin(pointer.yaw) * strafe;
 
       camera.position.x = THREE.MathUtils.clamp(camera.position.x, -10, 10);
       camera.position.z = THREE.MathUtils.clamp(camera.position.z, -32, 12);
