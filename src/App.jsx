@@ -8,9 +8,6 @@ import igKingfisherStudy from "./assets/instagram-art/DUOWvQ3EcRL.jpg";
 import igTargetPractice from "./assets/instagram-art/DHRzbtpOYiC.jpg";
 import igDrawingJourney from "./assets/instagram-art/DHKCTbouuDs.jpg";
 import igWoodpeckerInspo from "./assets/instagram-art/DJMpq_au-ye.jpg";
-import igDeckBirdMoment from "./assets/instagram-art/DHf6cVMOEr0.jpg";
-import igMaineMoment from "./assets/instagram-art/C8f74mIuPzo.jpg";
-import igBridgeShadows from "./assets/instagram-art/C5QhZ4wu7-8.jpg";
 
 const projects = [
   {
@@ -27,6 +24,7 @@ const projects = [
     ],
     outputs: ["image_model.pth", "class index mapping"],
     stack: ["PyTorch", "torchvision", "Python", "Apple MPS"],
+    visualInspiration: "Kingfisher color contrast and fast silhouette recognition.",
     link: "https://github.com/sarajmcghee/research-portfolio/blob/main/notebooks/pytorch_birdimages.ipynb",
     linkLabel: "Notebook: pytorch_birdimages.ipynb",
     tone: "river"
@@ -45,6 +43,7 @@ const projects = [
     ],
     outputs: ["image_model.pth", "audio_model.joblib", "audio_scaler.joblib"],
     stack: ["PyTorch", "torchvision", "scikit‑learn", "joblib", "Apple MPS"],
+    visualInspiration: "Field-note workflow: cross-checking one observation with another.",
     link: "https://github.com/sarajmcghee/research-portfolio/blob/main/notebooks/pytorch_fusion_audio_image_Bird.ipynb",
     linkLabel: "Notebook: pytorch_fusion_audio_image_Bird.ipynb",
     tone: "sunset"
@@ -63,6 +62,7 @@ const projects = [
     ],
     outputs: ["audio_model.joblib", "audio_scaler.joblib", "audio_feature_columns.joblib"],
     stack: ["scikit‑learn", "pandas", "joblib", "Python"],
+    visualInspiration: "Birdsong pattern listening translated into numeric feature rhythm.",
     link: "https://github.com/sarajmcghee/research-portfolio/blob/main/notebooks/pytorch_birdSongs.ipynb",
     linkLabel: "Notebook: pytorch_birdSongs.ipynb",
     tone: "forest"
@@ -75,6 +75,8 @@ const highlights = [
     summary: "Current home for ML research notes, notebooks, and portfolio updates.",
     year: "2026",
     language: "Jupyter Notebook",
+    buildFocus: "Research architecture",
+    visualSpark: "Natural-history notebook pacing",
     url: "https://github.com/sarajmcghee/research-portfolio",
     tone: "river"
   },
@@ -83,6 +85,8 @@ const highlights = [
     summary: "Real‑time UI exploration with modern React patterns.",
     year: "2025",
     language: "JavaScript",
+    buildFocus: "React UI systems",
+    visualSpark: "Clean conversational hierarchy",
     url: "https://github.com/sarajmcghee/react-chat-app",
     demo: "https://sarajmcghee.github.io/react-chat-app/",
     image: chatShot,
@@ -93,6 +97,8 @@ const highlights = [
     summary: "Utility scripting and scheduling logic in Python.",
     year: "2024",
     language: "Python",
+    buildFocus: "Automation logic",
+    visualSpark: "Household workflow clarity",
     url: "https://github.com/sarajmcghee/KidsChoreCalendar",
     tone: "sunset"
   },
@@ -101,6 +107,8 @@ const highlights = [
     summary: "JavaScript visual experimentation and image‑forward UI exploration.",
     year: "2025",
     language: "JavaScript",
+    buildFocus: "React + browser APIs",
+    visualSpark: "Image-first composition",
     url: "https://github.com/sarajmcghee/crybaby-photo",
     demo: "https://sarajmcghee.github.io/crybaby-photo/",
     image: cryShot,
@@ -111,6 +119,8 @@ const highlights = [
     summary: "Moody web experience with strong visual atmosphere.",
     year: "2024",
     language: "JavaScript",
+    buildFocus: "Web storytelling",
+    visualSpark: "Atmospheric contrast and tone",
     url: "https://sarajmcghee.github.io/unearthed-enigma/",
     demo: "https://sarajmcghee.github.io/unearthed-enigma/",
     image: enigShot,
@@ -121,6 +131,8 @@ const highlights = [
     summary: "Creative JavaScript experimentation and front‑end exploration.",
     year: "2024",
     language: "JavaScript",
+    buildFocus: "Creative frontend experiments",
+    visualSpark: "Playful interaction language",
     url: "https://github.com/sarajmcghee/Zayzilla",
     demo: "https://sarajmcghee.github.io/Zayzilla/",
     tone: "forest"
@@ -130,6 +142,8 @@ const highlights = [
     summary: "Early web foundations and layout practice.",
     year: "2022",
     language: "HTML",
+    buildFocus: "Foundational web layout",
+    visualSpark: "Early portfolio composition",
     url: "https://github.com/sarajmcghee/Portfolio-Project",
     tone: "river"
   }
@@ -140,43 +154,33 @@ const artworkGallery = [
     title: "Kingfisher Study (Instagram)",
     image: igKingfisherStudy,
     alt: "Kingfisher drawing by Sara on Instagram",
+    phase: "Observation",
+    medium: "Colored pencil",
     url: "https://www.instagram.com/p/DUOWvQ3EcRL/"
   },
   {
     title: "Target Practice Sketch",
     image: igTargetPractice,
     alt: "Bird sketch artwork posted by Sara on Instagram",
+    phase: "Sketch",
+    medium: "Graphite",
     url: "https://www.instagram.com/p/DHRzbtpOYiC/"
   },
   {
     title: "Drawing Hobby Return",
     image: igDrawingJourney,
     alt: "Bird drawing progress artwork posted by Sara on Instagram",
+    phase: "Iteration",
+    medium: "Pen + marker",
     url: "https://www.instagram.com/p/DHKCTbouuDs/"
   },
   {
     title: "Red-Bellied Woodpecker Inspo",
     image: igWoodpeckerInspo,
     alt: "Red-bellied woodpecker inspired artwork post by Sara on Instagram",
+    phase: "Reference study",
+    medium: "Wildlife observation",
     url: "https://www.instagram.com/p/DJMpq_au-ye/"
-  },
-  {
-    title: "Deck Bird Moment",
-    image: igDeckBirdMoment,
-    alt: "Nature bird photo posted by Sara on Instagram",
-    url: "https://www.instagram.com/p/DHf6cVMOEr0/"
-  },
-  {
-    title: "Maine Light Study",
-    image: igMaineMoment,
-    alt: "Maine landscape photo posted by Sara on Instagram",
-    url: "https://www.instagram.com/p/C8f74mIuPzo/"
-  },
-  {
-    title: "Bridge Shadows",
-    image: igBridgeShadows,
-    alt: "Nature scene photo posted by Sara on Instagram",
-    url: "https://www.instagram.com/p/C5QhZ4wu7-8/"
   }
 ];
 
@@ -187,55 +191,19 @@ export default function App() {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const scene = new THREE.Scene();
-    scene.fog = new THREE.Fog("#f4f0ea", 8, 32);
-    scene.background = new THREE.Color("#f7f3eb");
+    let scene = null;
+    let camera = null;
+    let renderer = null;
+    let world = null;
+    let sun = null;
+    let joyBase = null;
+    let joyStick = null;
+    let observer = null;
+    let frameId = 0;
+    let initialized = false;
+    let running = false;
+    let disposed = false;
 
-    const camera = new THREE.PerspectiveCamera(55, 1, 0.1, 200);
-    camera.position.set(0, 2.6, 12);
-
-    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    renderer.outputColorSpace = THREE.SRGBColorSpace;
-    renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 1.05;
-    renderer.shadowMap.enabled = true;
-    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-
-    const world = new THREE.Group();
-    scene.add(world);
-
-    const ground = new THREE.Mesh(
-      new THREE.PlaneGeometry(200, 200),
-      new THREE.MeshStandardMaterial({ color: "#e7e1d6", roughness: 0.95, metalness: 0.0 })
-    );
-    ground.rotation.x = -Math.PI / 2;
-    ground.position.y = -0.6;
-    ground.receiveShadow = true;
-    scene.add(ground);
-
-    const sun = new THREE.DirectionalLight("#ffe5c2", 1.1);
-    sun.position.set(8, 12, 6);
-    sun.castShadow = true;
-    sun.shadow.mapSize.set(2048, 2048);
-    sun.shadow.camera.near = 0.1;
-    sun.shadow.camera.far = 60;
-    sun.shadow.camera.left = -18;
-    sun.shadow.camera.right = 18;
-    sun.shadow.camera.top = 18;
-    sun.shadow.camera.bottom = -18;
-    scene.add(sun);
-    scene.add(new THREE.HemisphereLight("#eef4ff", "#7f6b55", 0.45));
-
-    const fill = new THREE.DirectionalLight("#b8d7ff", 0.4);
-    fill.position.set(-7, 5, -4);
-    scene.add(fill);
-
-    const rim = new THREE.DirectionalLight("#ffd6b0", 0.28);
-    rim.position.set(-3, 3, 9);
-    scene.add(rim);
-
-    let baseTree = null;
     const movement = {
       forward: 0,
       strafe: 0
@@ -255,75 +223,28 @@ export default function App() {
       y: 0
     };
     const lastInput = { time: Date.now() };
+    const lookTarget = new THREE.Vector3();
 
-    const createForest = async () => {
-      const tree = new FLORASYNTH.Tree(FLORASYNTH.Presets.ASH);
-      const meshes = await tree.generate();
-      const treeGroup = new THREE.Group();
-      if (meshes.mesh) {
-        meshes.mesh.traverse((child) => {
-          if (child.isMesh) {
-            child.geometry?.computeVertexNormals?.();
-            child.material = new THREE.MeshStandardMaterial({
-              color: "#5e3f2d",
-              roughness: 0.82,
-              metalness: 0.03
-            });
-            child.castShadow = true;
-            child.receiveShadow = true;
-          }
-        });
-        treeGroup.add(meshes.mesh);
-      }
-      if (meshes.foliageMesh) {
-        meshes.foliageMesh.traverse((child) => {
-          if (child.isMesh) {
-            child.geometry?.computeVertexNormals?.();
-            child.material = new THREE.MeshStandardMaterial({
-              color: "#be4237",
-              roughness: 0.72,
-              metalness: 0.0,
-              flatShading: false
-            });
-            child.castShadow = true;
-            child.receiveShadow = true;
-          }
-        });
-        treeGroup.add(meshes.foliageMesh);
-      }
-      if (meshes.fruitMesh) treeGroup.add(meshes.fruitMesh);
-      baseTree = treeGroup;
-
-      const rows = 5;
-      const cols = 6;
-      const spacing = 6;
-      for (let i = 0; i < rows; i += 1) {
-        for (let j = 0; j < cols; j += 1) {
-          const clone = baseTree.clone(true);
-          const x = (j - (cols - 1) / 2) * spacing + (Math.random() - 0.5) * 2.2;
-          const z = -i * spacing - Math.random() * 4;
-          const scale = 0.07 + Math.random() * 0.03;
-          clone.position.set(x, -0.6, z);
-          clone.scale.setScalar(scale);
-          clone.rotation.y = Math.random() * Math.PI * 2;
-          world.add(clone);
-        }
-      }
-    };
-
-    createForest();
+    const isSmallScreen = () =>
+      window.matchMedia("(max-width: 768px)").matches || window.innerWidth < 768;
 
     const resize = () => {
+      if (!renderer || !camera) return;
       const width = canvas.parentElement?.clientWidth || 520;
       const height = Math.min(520, width);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, isSmallScreen() ? 1.5 : 2));
       renderer.setSize(width, height, false);
       camera.aspect = width / height;
       camera.updateProjectionMatrix();
-    };
 
-    resize();
-    const handleResize = () => resize();
-    window.addEventListener("resize", handleResize);
+      if (sun) {
+        const shadowSize = isSmallScreen() ? 1024 : 2048;
+        if (sun.shadow.mapSize.x !== shadowSize || sun.shadow.mapSize.y !== shadowSize) {
+          sun.shadow.mapSize.set(shadowSize, shadowSize);
+          sun.shadow.map?.dispose?.();
+        }
+      }
+    };
 
     const onKey = (event, isDown) => {
       switch (event.code) {
@@ -375,13 +296,11 @@ export default function App() {
     };
 
     const onWheel = (event) => {
+      if (!camera) return;
       camera.position.z += event.deltaY * 0.003;
       camera.position.z = THREE.MathUtils.clamp(camera.position.z, 3, 18);
       lastInput.time = Date.now();
     };
-
-    const joyBase = document.getElementById("joystick-base");
-    const joyStick = document.getElementById("joystick-stick");
 
     const onJoyStart = (event) => {
       if (!joyBase || !joyStick) return;
@@ -422,24 +341,21 @@ export default function App() {
       movement.strafe = 0;
     };
 
-    const onKeyDown = (e) => onKey(e, true);
-    const onKeyUp = (e) => onKey(e, false);
+    const onKeyDown = (event) => onKey(event, true);
+    const onKeyUp = (event) => onKey(event, false);
+    const onResize = () => resize();
 
-    window.addEventListener("keydown", onKeyDown);
-    window.addEventListener("keyup", onKeyUp);
-    canvas.addEventListener("pointerdown", onPointerDown);
-    window.addEventListener("pointermove", onPointerMove);
-    window.addEventListener("pointerup", onPointerUp);
-    canvas.addEventListener("wheel", onWheel, { passive: true });
-    joyBase?.addEventListener("pointerdown", onJoyStart);
-    window.addEventListener("pointermove", onJoyMove);
-    window.addEventListener("pointerup", onJoyEnd);
-    joyBase?.addEventListener("touchstart", onJoyStart, { passive: true });
-    window.addEventListener("touchmove", onJoyMove, { passive: false });
-    window.addEventListener("touchend", onJoyEnd);
+    const stopRenderLoop = () => {
+      running = false;
+      if (frameId) {
+        cancelAnimationFrame(frameId);
+        frameId = 0;
+      }
+    };
 
-    let frameId;
     const animate = () => {
+      if (!running || !camera || !renderer || !scene) return;
+
       const speed = 0.08;
       const idle = Date.now() - lastInput.time > 1800;
       const forward = (idle ? 0.45 : movement.forward) * speed;
@@ -451,7 +367,7 @@ export default function App() {
       camera.position.x = THREE.MathUtils.clamp(camera.position.x, -10, 10);
       camera.position.z = THREE.MathUtils.clamp(camera.position.z, -32, 12);
 
-      const lookTarget = new THREE.Vector3(
+      lookTarget.set(
         camera.position.x + Math.sin(pointer.yaw),
         camera.position.y + pointer.pitch,
         camera.position.z - Math.cos(pointer.yaw)
@@ -460,11 +376,172 @@ export default function App() {
       renderer.render(scene, camera);
       frameId = requestAnimationFrame(animate);
     };
-    animate();
+
+    const startRenderLoop = () => {
+      if (!initialized || disposed || document.hidden || running) return;
+      running = true;
+      frameId = requestAnimationFrame(animate);
+    };
+
+    const onVisibilityChange = () => {
+      if (document.hidden) stopRenderLoop();
+      else startRenderLoop();
+    };
+
+    const createForest = async () => {
+      if (!world || disposed) return;
+      const tree = new FLORASYNTH.Tree(FLORASYNTH.Presets.ASH);
+      const meshes = await tree.generate();
+      if (disposed || !world) return;
+
+      const treeGroup = new THREE.Group();
+      if (meshes.mesh) {
+        meshes.mesh.traverse((child) => {
+          if (child.isMesh) {
+            child.geometry?.computeVertexNormals?.();
+            child.material = new THREE.MeshStandardMaterial({
+              color: "#5e3f2d",
+              roughness: 0.82,
+              metalness: 0.03
+            });
+            child.castShadow = true;
+            child.receiveShadow = true;
+          }
+        });
+        treeGroup.add(meshes.mesh);
+      }
+      if (meshes.foliageMesh) {
+        meshes.foliageMesh.traverse((child) => {
+          if (child.isMesh) {
+            child.geometry?.computeVertexNormals?.();
+            child.material = new THREE.MeshStandardMaterial({
+              color: "#be4237",
+              roughness: 0.72,
+              metalness: 0.0,
+              flatShading: false
+            });
+            child.castShadow = true;
+            child.receiveShadow = true;
+          }
+        });
+        treeGroup.add(meshes.foliageMesh);
+      }
+      if (meshes.fruitMesh) treeGroup.add(meshes.fruitMesh);
+
+      const rows = 5;
+      const cols = 6;
+      const spacing = 6;
+      for (let i = 0; i < rows; i += 1) {
+        for (let j = 0; j < cols; j += 1) {
+          const clone = treeGroup.clone(true);
+          const x = (j - (cols - 1) / 2) * spacing + (Math.random() - 0.5) * 2.2;
+          const z = -i * spacing - Math.random() * 4;
+          const scale = 0.07 + Math.random() * 0.03;
+          clone.position.set(x, -0.6, z);
+          clone.scale.setScalar(scale);
+          clone.rotation.y = Math.random() * Math.PI * 2;
+          world.add(clone);
+        }
+      }
+    };
+
+    const initScene = async () => {
+      if (initialized || disposed) return;
+      initialized = true;
+
+      scene = new THREE.Scene();
+      scene.fog = new THREE.Fog("#f4f0ea", 8, 32);
+      scene.background = new THREE.Color("#f7f3eb");
+
+      camera = new THREE.PerspectiveCamera(55, 1, 0.1, 200);
+      camera.position.set(0, 2.6, 12);
+
+      renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+      renderer.outputColorSpace = THREE.SRGBColorSpace;
+      renderer.toneMapping = THREE.ACESFilmicToneMapping;
+      renderer.toneMappingExposure = 1.05;
+      renderer.shadowMap.enabled = true;
+      renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
+      world = new THREE.Group();
+      scene.add(world);
+
+      const ground = new THREE.Mesh(
+        new THREE.PlaneGeometry(200, 200),
+        new THREE.MeshStandardMaterial({ color: "#e7e1d6", roughness: 0.95, metalness: 0.0 })
+      );
+      ground.rotation.x = -Math.PI / 2;
+      ground.position.y = -0.6;
+      ground.receiveShadow = true;
+      scene.add(ground);
+
+      sun = new THREE.DirectionalLight("#ffe5c2", 1.1);
+      sun.position.set(8, 12, 6);
+      sun.castShadow = true;
+      sun.shadow.camera.near = 0.1;
+      sun.shadow.camera.far = 60;
+      sun.shadow.camera.left = -18;
+      sun.shadow.camera.right = 18;
+      sun.shadow.camera.top = 18;
+      sun.shadow.camera.bottom = -18;
+      scene.add(sun);
+      scene.add(new THREE.HemisphereLight("#eef4ff", "#7f6b55", 0.45));
+
+      const fill = new THREE.DirectionalLight("#b8d7ff", 0.4);
+      fill.position.set(-7, 5, -4);
+      scene.add(fill);
+
+      const rim = new THREE.DirectionalLight("#ffd6b0", 0.28);
+      rim.position.set(-3, 3, 9);
+      scene.add(rim);
+
+      joyBase = document.getElementById("joystick-base");
+      joyStick = document.getElementById("joystick-stick");
+
+      window.addEventListener("resize", onResize);
+      window.addEventListener("keydown", onKeyDown);
+      window.addEventListener("keyup", onKeyUp);
+      canvas.addEventListener("pointerdown", onPointerDown);
+      window.addEventListener("pointermove", onPointerMove);
+      window.addEventListener("pointerup", onPointerUp);
+      canvas.addEventListener("wheel", onWheel, { passive: true });
+      joyBase?.addEventListener("pointerdown", onJoyStart);
+      window.addEventListener("pointermove", onJoyMove);
+      window.addEventListener("pointerup", onJoyEnd);
+      joyBase?.addEventListener("touchstart", onJoyStart, { passive: true });
+      window.addEventListener("touchmove", onJoyMove, { passive: false });
+      window.addEventListener("touchend", onJoyEnd);
+
+      resize();
+      await createForest();
+      startRenderLoop();
+    };
+
+    document.addEventListener("visibilitychange", onVisibilityChange);
+
+    if ("IntersectionObserver" in window) {
+      observer = new IntersectionObserver(
+        (entries) => {
+          const isVisible = entries.some((entry) => entry.isIntersecting);
+          if (!isVisible) return;
+          observer?.disconnect();
+          observer = null;
+          initScene();
+        },
+        { root: null, threshold: 0.15 }
+      );
+      observer.observe(canvas);
+    } else {
+      initScene();
+    }
 
     return () => {
-      cancelAnimationFrame(frameId);
-      window.removeEventListener("resize", handleResize);
+      disposed = true;
+      observer?.disconnect();
+      stopRenderLoop();
+
+      document.removeEventListener("visibilitychange", onVisibilityChange);
+      window.removeEventListener("resize", onResize);
       window.removeEventListener("keydown", onKeyDown);
       window.removeEventListener("keyup", onKeyUp);
       window.removeEventListener("pointermove", onPointerMove);
@@ -477,7 +554,25 @@ export default function App() {
       joyBase?.removeEventListener("touchstart", onJoyStart);
       window.removeEventListener("touchmove", onJoyMove);
       window.removeEventListener("touchend", onJoyEnd);
-      renderer.dispose();
+
+      if (scene) {
+        scene.traverse((node) => {
+          if (!node.isMesh) return;
+          node.geometry?.dispose?.();
+          const materials = Array.isArray(node.material) ? node.material : [node.material];
+          materials.forEach((material) => {
+            if (!material) return;
+            Object.values(material).forEach((value) => {
+              if (value?.isTexture) value.dispose();
+            });
+            material.dispose?.();
+          });
+        });
+      }
+
+      renderer?.dispose();
+      renderer?.renderLists?.dispose?.();
+      renderer?.forceContextLoss?.();
     };
   }, []);
 
@@ -494,16 +589,16 @@ export default function App() {
           <div>
             <h1>
               Sara McGhee
-              <span>Machine learning portfolio inspired by field observation</span>
+              <span>Bird artist and React builder</span>
             </h1>
             <p className="lead">
-              I build compact ML experiments focused on clear model behavior, fast iteration, and
-              nature-grounded evaluation. Current work explores transfer learning for practical bird
-              classification pipelines.
+              I turn bird observation and drawing practice into interactive web experiences and
+              machine-learning experiments. The same process drives both: observe closely, simplify
+              structure, and build clear systems in React.
             </p>
             <div className="hero-actions">
-              <a className="button" href="#work">View PyTorch Case Studies</a>
-              <a className="button ghost" href="#about">Read My Approach</a>
+              <a className="button" href="#art-practice">See Art Practice</a>
+              <a className="button ghost" href="#tech-builds">Explore Tech Builds</a>
             </div>
           </div>
           <div className="hero-canvas forest">
@@ -517,8 +612,8 @@ export default function App() {
 
       <section id="work" className="section">
         <div className="section-title">
-          <h2>Latest PyTorch Work</h2>
-          <p>Inspired by kingfisher precision: quick dives, clean retrieval.</p>
+          <h2>Research Systems</h2>
+          <p>Machine-learning case studies built from field-note precision.</p>
         </div>
         {projects.map((project) => (
           <article className="card" key={project.title}>
@@ -557,6 +652,10 @@ export default function App() {
               </div>
             </div>
             <div className="path">
+              <span className="label">Visual inspiration</span>
+              <p className="small">{project.visualInspiration}</p>
+            </div>
+            <div className="path">
               <span className="label">Notebook</span>
               <a className="link" href={project.link} target="_blank" rel="noreferrer">
                 {project.linkLabel}
@@ -570,12 +669,22 @@ export default function App() {
         <div>
           <h2>About</h2>
           <p>
-            I gravitate toward projects where careful data handling and expressive model design meet.
-            Birds are a perfect testbed: subtle class boundaries, diverse textures, and the need for
-            graceful generalization.
+            I use drawing as a systems-thinking practice: framing, hierarchy, and edge detection in art
+            transfer directly into how I design interfaces and model pipelines. Birds are my constant
+            benchmark for detail, motion, and clarity.
           </p>
         </div>
         <div className="panel">
+          <h3>How I Build in React</h3>
+          <div className="chips">
+            <span className="chip">Component-first architecture</span>
+            <span className="chip">State-driven interaction design</span>
+            <span className="chip">Accessible defaults + responsive polish</span>
+          </div>
+          <p className="small">
+            I treat React as a sketchbook for behavior: prototype quickly, refine composition, then
+            ship maintainable UI systems.
+          </p>
           <h3>Kingfisher Palette</h3>
           <div className="palette">
             <span style={{ "--swatch": "var(--kingfisher-orange)" }} />
@@ -589,10 +698,10 @@ export default function App() {
         </div>
       </section>
 
-      <section className="section">
+      <section id="tech-builds" className="section">
         <div className="section-title">
-          <h2>Development Highlights</h2>
-          <p>A curated grid tracing the evolution of tools, languages, and focus.</p>
+          <h2>Tech Builds</h2>
+          <p>React interfaces, creative web experiments, and ML tooling with visual intent.</p>
         </div>
         <div className="grid">
           {highlights.map((item) => {
@@ -615,6 +724,7 @@ export default function App() {
                   <p>{item.summary}</p>
                   <div className="highlight-meta">
                     <span className="chip">{item.language}</span>
+                    <span className="chip">{item.buildFocus}</span>
                     {item.demo ? (
                       <a className="demo" href={item.demo} target="_blank" rel="noreferrer">
                         Live
@@ -624,6 +734,7 @@ export default function App() {
                       Repo
                     </a>
                   </div>
+                  <p className="small">Visual spark: {item.visualSpark}</p>
                 </div>
               </article>
             );
@@ -631,10 +742,10 @@ export default function App() {
         </div>
       </section>
 
-      <section className="section art">
+      <section id="art-practice" className="section art">
         <div className="section-title">
-          <h2>Art</h2>
-          <p>Selected artwork from my visual studies and experiments.</p>
+          <h2>Art Practice</h2>
+          <p>Observation to sketch to composition studies that guide my interface decisions.</p>
         </div>
         <div className="art-feed-link">
           <a
@@ -656,6 +767,10 @@ export default function App() {
                 <a className="link" href={piece.url} target="_blank" rel="noreferrer">
                   {piece.title}
                 </a>
+                <div className="art-meta">
+                  <span className="chip">{piece.phase}</span>
+                  <span className="chip">{piece.medium}</span>
+                </div>
               </figcaption>
             </figure>
           ))}
