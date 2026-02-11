@@ -1,0 +1,34 @@
+name: Link Check
+
+on:
+  pull_request:
+  push:
+    branches: ["main"]
+
+jobs:
+  link-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install
+        run: npm ci
+
+      - name: Run link check
+        run: npm run qa:links
+        env:
+          LINK_CHECK_BASE: https://sarajmcghee.github.io/research-portfolio/
+
+      - name: Upload link-check reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: link-check-report
+          path: reports/link-check/

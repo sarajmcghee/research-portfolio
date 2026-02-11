@@ -1,0 +1,56 @@
+{
+  "generatedAt": "2026-02-11T00:02:18.445Z",
+  "config": {
+    "base": "https://sarajmcghee.github.io/research-portfolio/",
+    "staging": "",
+    "ignoreDomains": [],
+    "failOnExternal": false,
+    "timeoutMs": 12000,
+    "maxPages": 120,
+    "targets": [
+      "https://sarajmcghee.github.io/research-portfolio/"
+    ]
+  },
+  "targets": [
+    {
+      "target": "https://sarajmcghee.github.io/research-portfolio/",
+      "crawledPages": [
+        "https://sarajmcghee.github.io/research-portfolio/"
+      ],
+      "checkedUrlCount": 0,
+      "brokenInternal": [
+        {
+          "source": "(crawl)",
+          "url": "https://sarajmcghee.github.io/research-portfolio/",
+          "status": 0,
+          "error": "fetch failed"
+        }
+      ],
+      "brokenExternal": [],
+      "redirectChains": [],
+      "missingAssets": [],
+      "seoIssues": []
+    }
+  ],
+  "brokenInternal": [
+    {
+      "source": "(crawl)",
+      "url": "https://sarajmcghee.github.io/research-portfolio/",
+      "status": 0,
+      "error": "fetch failed"
+    }
+  ],
+  "brokenExternal": [],
+  "redirectChains": [],
+  "missingAssets": [],
+  "seoIssues": [],
+  "summary": {
+    "pagesCrawled": 1,
+    "urlsChecked": 0,
+    "brokenInternal": 1,
+    "brokenExternal": 0,
+    "redirectChains": 0,
+    "missingAssets": 0,
+    "seoIssues": 0
+  }
+}
