@@ -482,8 +482,8 @@ export default function App() {
           if (child.isMesh) {
             child.geometry?.computeVertexNormals?.();
             child.material = new THREE.MeshStandardMaterial({
-              color: "#6b4a33",
-              roughness: 0.88,
+              color: "#5e3f2d",
+              roughness: 0.82,
               metalness: 0.03
             });
             child.castShadow = true;
@@ -497,8 +497,8 @@ export default function App() {
           if (child.isMesh) {
             child.geometry?.computeVertexNormals?.();
             child.material = new THREE.MeshStandardMaterial({
-              color: "#6f8f45",
-              roughness: 0.8,
+              color: "#be4237",
+              roughness: 0.72,
               metalness: 0.0,
               flatShading: false
             });
