@@ -421,6 +421,10 @@ h1 span {
   line-height: var(--lh-body);
 }
 
+.highlight-card .small {
+  margin-top: var(--space-3);
+}
+
 .highlight-meta {
   display: flex;
   align-items: center;
@@ -476,24 +480,33 @@ h1 span {
 
 .art-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: var(--space-5);
 }
 
 .art-card img {
-  width: 100%;
+  width: min(240px, 100%);
   border-radius: var(--radius-md);
   display: block;
-  object-fit: contain;
-  height: 280px;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+  height: auto;
   background: #f0ece6;
-  padding: var(--space-3);
+  padding: 0;
+  margin: 0 auto;
 }
 
 .art-card figcaption {
   margin-top: var(--space-3);
   font-size: 0.95rem;
   color: rgba(11, 31, 34, 0.78);
+}
+
+.art-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
 }
 
 .card-header p {
@@ -599,6 +612,15 @@ code {
   box-shadow: var(--shadow-sm);
 }
 
+.panel h3 {
+  margin-top: 0;
+  margin-bottom: var(--space-3);
+}
+
+.panel h3 + .chips {
+  margin-bottom: var(--space-3);
+}
+
 .palette {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -689,6 +711,11 @@ button:focus-visible,
 
   .joystick {
     display: none;
+  }
+
+  .art-card img {
+    width: min(240px, 100%);
+    height: auto;
   }
 }
 
