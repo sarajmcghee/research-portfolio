@@ -9,6 +9,12 @@ import igTargetPractice from "./assets/instagram-art/DHRzbtpOYiC.jpg";
 import igDrawingJourney from "./assets/instagram-art/DHKCTbouuDs.jpg";
 import igWoodpeckerInspo from "./assets/instagram-art/DJMpq_au-ye.jpg";
 import igDrawingDetail from "./assets/instagram-art/DHKCN5cujm_.jpg";
+import igBlueJayInktober from "./assets/instagram-art/CU-s4qzrjg5.jpg";
+import igRavenInktober from "./assets/instagram-art/CUplS_aLaQx.jpg";
+import igBaldEagleStudy from "./assets/instagram-art/CTnjhBXLtMH.jpg";
+import igOwlStudy from "./assets/instagram-art/CTXiXNLLZav.jpg";
+import igBluebirdTweets from "./assets/instagram-art/CSsVNcvrBqb.jpg";
+import igKingfisherPrismacolor from "./assets/instagram-art/CIy9qYhHpPi.jpg";
 
 const projects = [
   {
@@ -190,6 +196,54 @@ const artworkGallery = [
     phase: "Detail pass",
     medium: "Mixed media",
     url: "https://www.instagram.com/p/DHKCTbouuDs/"
+  },
+  {
+    title: "Blue Jay Inktober",
+    image: igBlueJayInktober,
+    alt: "Blue jay bird drawing posted by Sara on Instagram",
+    phase: "Inktober",
+    medium: "Pen + ink",
+    url: "https://www.instagram.com/p/CU-s4qzrjg5/"
+  },
+  {
+    title: "Raven Inktober",
+    image: igRavenInktober,
+    alt: "Raven bird drawing posted by Sara on Instagram",
+    phase: "Inktober",
+    medium: "Pen + ink",
+    url: "https://www.instagram.com/p/CUplS_aLaQx/"
+  },
+  {
+    title: "Bald Eagle Study",
+    image: igBaldEagleStudy,
+    alt: "Bald eagle drawing posted by Sara on Instagram",
+    phase: "Wildlife study",
+    medium: "Colored pencil",
+    url: "https://www.instagram.com/p/CTnjhBXLtMH/"
+  },
+  {
+    title: "Owl Study",
+    image: igOwlStudy,
+    alt: "Owl drawing posted by Sara on Instagram",
+    phase: "Character study",
+    medium: "Colored pencil",
+    url: "https://www.instagram.com/p/CTXiXNLLZav/"
+  },
+  {
+    title: "Bluebird 'Tweets'",
+    image: igBluebirdTweets,
+    alt: "Bluebird drawing posted by Sara on Instagram",
+    phase: "Observation",
+    medium: "Colored pencil",
+    url: "https://www.instagram.com/p/CSsVNcvrBqb/"
+  },
+  {
+    title: "Kingfisher (Prismacolor)",
+    image: igKingfisherPrismacolor,
+    alt: "Kingfisher drawing posted by Sara on Instagram",
+    phase: "Color pass",
+    medium: "Colored pencil",
+    url: "https://www.instagram.com/p/CIy9qYhHpPi/"
   }
 ];
 
