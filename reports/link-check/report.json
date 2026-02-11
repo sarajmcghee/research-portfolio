@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-11T00:13:42.969Z",
+  "generatedAt": "2026-02-11T00:50:55.541Z",
   "config": {
     "base": "http://127.0.0.1:4173/research-portfolio/",
     "staging": "",
@@ -26,34 +26,14 @@
       "brokenExternal": [],
       "redirectChains": [],
       "missingAssets": [],
-      "seoIssues": [
-        {
-          "page": "http://127.0.0.1:4173/research-portfolio/",
-          "missing": [
-            "meta description",
-            "og:title",
-            "og:description",
-            "og:image"
-          ]
-        }
-      ]
+      "seoIssues": []
     }
   ],
   "brokenInternal": [],
   "brokenExternal": [],
   "redirectChains": [],
   "missingAssets": [],
-  "seoIssues": [
-    {
-      "page": "http://127.0.0.1:4173/research-portfolio/",
-      "missing": [
-        "meta description",
-        "og:title",
-        "og:description",
-        "og:image"
-      ]
-    }
-  ],
+  "seoIssues": [],
   "summary": {
     "pagesCrawled": 1,
     "urlsChecked": 0,
@@ -61,6 +41,6 @@
     "brokenExternal": 0,
     "redirectChains": 0,
     "missingAssets": 0,
-    "seoIssues": 1
+    "seoIssues": 0
   }
 }
