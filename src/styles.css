@@ -813,7 +813,16 @@ button:focus-visible,
   }
 
   .joystick {
-    display: none;
+    width: 68px;
+    height: 68px;
+    bottom: var(--space-2);
+    left: var(--space-2);
+    opacity: 0.85;
+  }
+
+  .joystick-stick {
+    width: 30px;
+    height: 30px;
   }
 
   .art-card img {
