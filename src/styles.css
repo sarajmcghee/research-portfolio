@@ -163,6 +163,7 @@ h1 span {
 }
 
 .hero-canvas {
+  position: relative;
   justify-self: center;
   display: grid;
   place-items: center;
@@ -201,6 +202,21 @@ h1 span {
   display: grid;
   place-items: center;
   touch-action: none;
+}
+
+@media (max-width: 900px) {
+  .joystick {
+    width: 76px;
+    height: 76px;
+    bottom: var(--space-3);
+    left: var(--space-3);
+    opacity: 0.8;
+  }
+
+  .joystick-stick {
+    width: 34px;
+    height: 34px;
+  }
 }
 
 .joystick-stick {
@@ -443,6 +459,8 @@ h1 span {
 .demo {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  min-height: 44px;
   text-decoration: none;
   font-size: var(--fs-caption);
   text-transform: uppercase;
@@ -457,6 +475,8 @@ h1 span {
 .repo-link {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  min-height: 44px;
   text-decoration: none;
   font-size: var(--fs-caption);
   text-transform: uppercase;
@@ -755,6 +775,31 @@ button:focus-visible,
   .section-title {
     flex-direction: column;
     align-items: flex-start;
+  }
+}
+
+@media (max-width: 900px) {
+  .highlight-card {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  .highlight-media-link {
+    width: 100%;
+    min-height: 44px;
+  }
+
+  .shot {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 10;
+    display: block;
+  }
+
+  .highlight-media-link .thumb {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 10;
   }
 }
 
