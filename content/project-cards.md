@@ -23,3 +23,9 @@ Title: Multimodal Bird ID (Audio + Image Fusion)
 CardSummary: Fused image and audio top-k predictions into a single decision path without expensive retraining.
 Focus: Model-output integration, label mapping, deterministic recommendation logic.
 Impact: Reduced integration friction and improved prediction usability for real workflows.
+
+## mystery-ages
+Title: Mystery Ages
+CardSummary: [PLACEHOLDER] Interactive web experience deployed to GitHub Pages.
+Focus: [PLACEHOLDER] Story-driven interface design and frontend implementation.
+Impact: Expanded portfolio breadth with a dedicated published experience.

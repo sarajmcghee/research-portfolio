@@ -12,6 +12,7 @@ I build across frontend, backend, and ML workflows, with a focus on reliability,
 - pytorch-bird-images-classifier
 - birdsong-audio-baseline
 - multimodal-bird-id-fusion
+- mystery-ages
 
 ## Skills / Focus Areas
 - Full-stack product engineering (React, APIs, deployment)

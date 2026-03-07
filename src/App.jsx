@@ -18,6 +18,23 @@ import igKingfisherPrismacolor from "./assets/instagram-art/CIy9qYhHpPi.jpg";
 
 const projects = [
   {
+    title: "Mystery Ages",
+    subtitle: "Interactive story-driven web experience",
+    summary:
+      "Built and shipped a standalone interactive experience focused on atmosphere, narrative pacing, and polished frontend presentation.",
+    details: [
+      "Published live on GitHub Pages for direct public access",
+      "Designed for story-first flow and visual tone",
+      "Structured as a standalone experience that expands portfolio range"
+    ],
+    outputs: ["Live interactive site"],
+    stack: ["JavaScript", "HTML", "CSS", "GitHub Pages"],
+    visualInspiration: "Mystery and atmospheric storytelling through web interaction.",
+    link: "https://sarajmcghee.github.io/MysteryAges/",
+    linkLabel: "Live Site: Mystery Ages",
+    tone: "sunset"
+  },
+  {
     title: "PyTorch Bird Images Classifier",
     subtitle: "Transfer learning for fine‑grained bird species recognition",
     summary:
@@ -97,6 +114,17 @@ const highlights = [
     url: "https://github.com/sarajmcghee/react-chat-app",
     demo: "https://sarajmcghee.github.io/react-chat-app/",
     image: chatShot,
+    tone: "sunset"
+  },
+  {
+    title: "Mystery Ages",
+    summary: "Interactive web experience published on GitHub Pages.",
+    year: "2026",
+    language: "JavaScript",
+    buildFocus: "Interactive web experience",
+    visualSpark: "Story-first interface direction",
+    url: "https://sarajmcghee.github.io/MysteryAges/",
+    demo: "https://sarajmcghee.github.io/MysteryAges/",
     tone: "sunset"
   },
   {
