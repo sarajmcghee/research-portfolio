@@ -30,8 +30,8 @@ const projects = [
     outputs: ["Live interactive site"],
     stack: ["JavaScript", "HTML", "CSS", "GitHub Pages"],
     visualInspiration: "Mystery and atmospheric storytelling through web interaction.",
-    link: "https://sarajmcghee.github.io/MysteryAges/",
-    linkLabel: "Live Site: Mystery Ages",
+    link: "https://sarajmcghee.github.io/MysteryAges/index.html",
+    linkLabel: "Live Interactive Site",
     tone: "sunset"
   },
   {
@@ -123,8 +123,8 @@ const highlights = [
     language: "JavaScript",
     buildFocus: "Interactive web experience",
     visualSpark: "Story-first interface direction",
-    url: "https://sarajmcghee.github.io/MysteryAges/",
-    demo: "https://sarajmcghee.github.io/MysteryAges/",
+    url: "https://github.com/sarajmcghee/MysteryAges",
+    demo: "https://sarajmcghee.github.io/MysteryAges/index.html",
     tone: "sunset"
   },
   {
@@ -766,7 +766,7 @@ export default function App() {
               <p className="small">{project.visualInspiration}</p>
             </div>
             <div className="path">
-              <span className="label">Notebook</span>
+              <span className="label">Project Link</span>
               <a className="link" href={project.link} target="_blank" rel="noreferrer">
                 {project.linkLabel}
               </a>
