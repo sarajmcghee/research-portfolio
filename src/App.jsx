@@ -30,7 +30,7 @@ const projects = [
     outputs: ["Live interactive site"],
     stack: ["JavaScript", "HTML", "CSS", "GitHub Pages"],
     visualInspiration: "Mystery and atmospheric storytelling through web interaction.",
-    link: "https://sarajmcghee.github.io/MysteryAges/index.html",
+    link: "https://sarajmcghee.github.io/MysteryAges/",
     linkLabel: "Live Interactive Site",
     tone: "sunset"
   },
@@ -124,7 +124,7 @@ const highlights = [
     buildFocus: "Interactive web experience",
     visualSpark: "Story-first interface direction",
     url: "https://github.com/sarajmcghee/MysteryAges",
-    demo: "https://sarajmcghee.github.io/MysteryAges/index.html",
+    demo: "https://sarajmcghee.github.io/MysteryAges/",
     tone: "sunset"
   },
   {
