@@ -27,7 +27,7 @@ const projects = [
       "Designed for story-first flow and visual tone",
       "Structured as a standalone experience that expands portfolio range"
     ],
-    outputs: ["Live interactive site"],
+    outputs: [{ label: "Live Interactive Site", url: "https://sarajmcghee.github.io/MysteryAges/" }],
     stack: ["JavaScript", "HTML", "CSS", "GitHub Pages"],
     visualInspiration: "Mystery and atmospheric storytelling through web interaction.",
     link: "https://sarajmcghee.github.io/MysteryAges/",
@@ -748,7 +748,19 @@ export default function App() {
                 <span className="label">Outputs</span>
                 <div className="chips">
                   {project.outputs.map((item) => (
-                    <span className="chip" key={item}>{item}</span>
+                    typeof item === "string" ? (
+                      <span className="chip" key={item}>{item}</span>
+                    ) : (
+                      <a
+                        className="chip chip-link"
+                        key={item.label}
+                        href={item.url}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        {item.label}
+                      </a>
+                    )
                   ))}
                 </div>
               </div>
